@@ -1,0 +1,120 @@
+* {
+    base: #1e1e2e;
+    mantle: #181825;
+    crust:  #11111b;
+    text: #cdd6f4;
+    subtext0: #a6adc8;
+    subtext1: #bac2de;
+    blue: #89b4fa;
+    lavender: #b4befe;
+    sapphire: #74c7ec;
+    pink: #f5c2e7;
+    width: 600;
+    font: "JetBrainsMono Nerd Font 14";
+}
+
+element-text, element-icon , mode-switcher {
+    background-color: inherit;
+    text-color:       inherit;
+}
+
+window {
+    height: 360px;
+    border: 2px;
+    border-radius: 8px;
+    border-color: @blue;
+    background-color: @base;
+}
+
+mainbox {
+    background-color: @base;
+}
+
+inputbar {
+    children: [prompt,entry];
+    background-color: @base;
+    border-radius: 8px;
+    padding: 2px;
+    margin: 0px 20px 0px 0px;
+}
+
+prompt {
+    background-color: @blue;
+    padding: 6px;
+    text-color: @text;
+    border-radius: 8px;
+    margin: 20px 0px 0px 20px;
+}
+
+textbox-prompt-colon {
+    expand: false;
+    str: ":";
+}
+
+entry {
+    border-radius: 8px;
+    border: 0px 0px 2px 0px;
+    border-color: @blue;
+    padding: 6px;
+    margin: 20px 0px 0px 10px;
+    text-color: @text;
+    background-color: @mantle;
+}
+
+listview {
+    border: 0px 0px 0px;
+    border-radius: 8px;
+    padding: 6px 0px 0px;
+    margin: 10px 20px 0px 20px;
+    columns: 1;
+    lines: 6;
+    background-color: @mantle;
+}
+
+element {
+    padding: 5px;
+    background-color: @mantle;
+    text-color: @subtext0;
+}
+
+element-icon {
+    size: 25px;
+}
+
+element selected {
+    background-color:  @blue ;
+    text-color: @text ;
+}
+
+mode-switcher {
+    spacing: 0;
+  }
+
+button {
+    padding: 10px;
+    background-color: @base;
+    text-color: @subtext0;
+    vertical-align: 0.5; 
+    horizontal-align: 0.5;
+}
+
+button selected {
+ 	border: 1px 0px 0px 0px;
+    border-color: @blue;
+    background-color: @base;
+    text-color: @blue;
+}
+
+message {
+    background-color: @base;
+    margin: 2px;
+    padding: 2px;
+    border-radius: 8px;
+}
+
+textbox {
+    padding: 6px;
+    margin: 20px 0px 0px 20px;
+    text-color: @blue;
+    background-color: @base;
+}

@@ -1,0 +1,68 @@
+#----------------------------#
+# Sway Configuration Include #
+#----------------------------#
+
+include configs/keybindings.conf
+include configs/appearance.conf
+include configs/windowrules.conf
+
+#-------------------#
+# Setting Variables #
+#-------------------#
+
+set $sway_scripts $HOME/.config/sway/scripts
+set $rofi_scripts $HOME/.config/rofi/scripts
+
+#-----------#
+# Autostart #
+#-----------# 
+exec_always  --no-startup-id  $sway_scripts/autotiling
+exec_always  --no-startup-id  $sway_scripts/launch_waybar.sh
+exec_always  --no-startup-id  wl-paste -t text --watch clipman store --no-persist
+exec_always  --no-startup-id  wl-paste -p -t text --watch clipman store -P --histpath="~/.local/share/clipman-primary.json"
+exec_always  --no-startup-id  dunst -conf ~/.config/dunst/catppuccin.dunstrc &
+exec_always  --no-startup-id  fcitx5 &
+exec_always  --no-startup-id  nm-applet --indicator &
+
+#-------#
+# Input #
+#-------#
+
+# You can get the names of your inputs by running: swaymsg -t get_inputs
+# Read `man 5 sway-input` for more information about this section.
+input "1739:52781:MSFT0001:01_06CB:CE2D_Touchpad" {
+	dwt enabled
+	tap enabled
+	natural_scroll enabled
+	middle_emulation enabled
+}
+
+#-----------------------------#
+#           Misc              #
+#-----------------------------#
+output * adaptive_sync on
+  
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec hash dbus-update-activation-environment 2>/dev/null && dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
+
+#--------------------#
+# Idle configuration #
+#--------------------#
+#exec swayidle -w \
+	#timeout 300 '~/.config/sway/scripts/swaylock.sh' \
+	#timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+	#timeout 6 'systemctl suspend' \
+	#before-sleep '~/.config/sway/scripts/swaylock.sh'
+
+#exec swayidle -w \
+    #timeout 900 'systemctl suspend' \
+    #before-sleep '~/.config/sway/scripts/swaylock.sh'
+
+# This will lock your screen after 300 seconds of inactivity, then turn off
+# your displays after another 300 seconds, and turn your screens back on when
+# resumed. It will also lock your screen before your computer goes to sleep.
+
+
+
+
+
