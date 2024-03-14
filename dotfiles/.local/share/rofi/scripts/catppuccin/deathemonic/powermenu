@@ -2,6 +2,7 @@
 theme_dir="$HOME/.local/share/rofi/themes/catppuccin/deathemonic"
 rofi_command="rofi -theme $theme_dir/powermenu.rasi"
 uptime=$(uptime -p | sed -e 's/up //g')
+user=$(whoami)
 
 # Options
 if [[ "$DIR" == "powermenus" ]]; then
@@ -108,7 +109,7 @@ case $chosen in
     $logout)
 		ans=$(rdialog &)
 		if [[ $ans == "yes" ]] || [[ $ans == "YES" ]] || [[ $ans == "y" ]]; then
-			bspc quit
+			pkill -KILL -u "$user"
 		elif [[ $ans == "no" ]] || [[ $ans == "NO" ]] || [[ $ans == "n" ]]; then
 			exit
         else
