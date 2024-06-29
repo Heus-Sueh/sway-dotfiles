@@ -24,7 +24,7 @@ To use the wallpaper selector, you need to place your wallpapers in the director
 ## Screenshots
 
 <details>
-<summary<b>Full View</b></summary>
+<summary><b>Full View</b></summary>
 <img src="screenshots/full-view.png"/>
 </details>
 
