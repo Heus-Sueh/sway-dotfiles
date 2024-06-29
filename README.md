@@ -1,7 +1,6 @@
 # sway-dotfiles
-My Sway dotfiles
 
-To use the wallpaper selector, you need to place your wallpapers in the directory `~/Pictures/Wallpapers`. Once you have your images in the correct folder, you can access the wallpaper selector by pressing `Super + T`. This will open the Rofi menu, allowing you to choose from your available wallpapers or select a random one to set as your background.
+To use the wallpaper selector, you need to place your wallpapers in the directory `~/Pictures/Wallpapers` (folders with images is ok too). Once you have your images in the correct folder, you can access the wallpaper selector by pressing `Super + T`. This will open the Rofi menu, allowing you to choose from your available wallpapers or select a random one to set as your background.
 
 <img src="screenshots/wallpaper-selector.png"/>
 
@@ -25,8 +24,13 @@ To use the wallpaper selector, you need to place your wallpapers in the director
 ## Screenshots
 
 <details>
+<summary<b>Full View</b><summary>
+<img src="screenshots/full-view.png"/>
+</details>
+
+<details>
 <summary><b>Way-shell</b></summary>
-<img src="screenshots/way-shell.png"/>
+<img src="screenshots/way-shell-panel.png"/>
 </details>
 
 <details>
