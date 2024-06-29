@@ -1,0 +1,71 @@
+[config]
+reload_apps = true
+set_wallpaper = true
+wallpaper_tool = 'Swww'
+swww_options = [
+    "--transition-type",
+    "center",
+]
+run_after = [
+    [ "echo", "'hello'" ],
+]
+
+[config.reload_apps_list]
+waybar = true
+kitty = true
+gtk_theme = true
+dunst = true
+alacritty = true
+
+[templates]
+# Terminal Apps Colors
+kitty = { input_path = '~/.config/matugen/templates/kitty-colors.conf', output_path = '~/.config/kitty/colors.conf' }
+alacritty = { input_path = '~/.config/matugen/templates/alacritty-colors.toml', output_path = '~/.config/alacritty/colors.toml' }
+starship = { input_path = '~/.config/matugen/templates/starship-colors.toml', output_path = '~/.config/starship.toml' }
+
+# Apps Colors
+waybar = {input_path = '~/.config/matugen/templates/waybar-colors.css', output_path='~/.config/waybar/colors.css' }
+wayshell = { input_path = '~/.config/matugen/templates/wayshell-colors.css', output_path = '~/.config/way-shell/colors.css' }
+dunst = { input_path = '~/.config/matugen/templates/dunstrc-colors', output_path = '~/.config/dunst/dunstrc' }
+rofi = { input_path = '~/.config/matugen/templates/rofi-colors.rasi', output_path = '~/.config/rofi/colors.rasi' }
+gtk3 = { input_path = '~/.config/matugen/templates/gtk-colors.css', output_path = '~/.config/gtk-3.0/gtk.css' }
+gtk4 = { input_path = '~/.config/matugen/templates/gtk-colors.css', output_path = '~/.config/gtk-4.0/gtk.css' }
+wlogout = { input_path = '~/.config/matugen/templates/wlogout-colors.css', output_path = '~/.config/wlogout/colors.css' }
+telegram = { input_path = '~/.config/matugen/templates/telegram-colors.tdesktop-theme', output_path = '~/.config/matugen/generated/matugen.tdesktop-theme' }
+# discord = { input_path = '~/.config/matugen/templates/discord-colors.theme.css', output_path = '~/Downloads/discord-colors.theme.css' }
+
+# Window Managers Colors
+sway = { input_path = '~/.config/matugen/templates/sway-colors.conf', output_path = '~/.config/sway/colors.conf' }
+hyprland = { input_path = '~/.config/matugen/templates/hyprland-colors.conf', output_path = '~/.config/hypr/colors.conf' }
+
+# papirus-folders = {
+# colors_to_compare = [
+#     { name = "adwaita", color = "#aacae8" },
+#     { name = "blue", color = "#7cabe2" },
+#     { name = "breeze", color = "#7fc4e9" },
+#     { name = "carmine", color = "#b54142" },
+#     { name = "darkcyan", color = "#72bbc4" },
+#     { name = "green", color = "#a1bf80" },
+#     { name = "indigo", color = "#838dca" },
+#     { name = "nordic", color = "#9db4cb" },
+#     { name = "palebrown", color = "#d6c9bd" },
+#     { name = "pink", color = "#ec87a9" },
+#     { name = "teal", color = "#159a80" },
+#     { name = "white", color = "#e4e4e4" },
+#     { name = "yellow", color = "#f3c863" },
+#     { name = "black", color = "#797979" },
+#     { name = "bluegray", color = "#869aa4" },
+#     { name = "brown", color = "#bda68e" },
+#     { name = "cyan", color = "#41c7d8" },
+#     { name = "deeporange", color = "#e98a68" },
+#     { name = "grey", color = "#a6a6a6" },
+#     { name = "magenta", color = "#d192e0" },
+#     { name = "orange", color = "#eba96a" },
+#     { name = "paleorange", color = "#ebd1a7" },
+#     { name = "red", color = "#e27c7c" },
+#     { name = "violet", color = "#9b7fcb" }
+# ],
+# compare_to = "{{colors.primary.default.hex}}",
+# hook = "papirus-folders -C {} --theme Papirus-Dark"
+# }
+
