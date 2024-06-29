@@ -1,44 +1,41 @@
 # sway-dotfiles
 My Sway dotfiles
 
+To use the wallpaper selector, you need to place your wallpapers in the directory `~/Pictures/Wallpapers`. Once you have your images in the correct folder, you can access the wallpaper selector by pressing `Super + T`. This will open the Rofi menu, allowing you to choose from your available wallpapers or select a random one to set as your background.
+
+<img src="screenshots/wallpaper-selector.png"/>
+
 ## The following things are necessary:
-- [Catppuccin GTK](https://github.com/catppuccin/gtk)
-- [Catppuccin Cursors](https://github.com/catppuccin/cursors)
+- [adw-gtk3](https://github.com/lassekongo83/adw-gtk3)
+- [matugen](https://github.com/InioX/matugen)
 - [Papirus Icons](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)
-- [JetBrains Mono](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/JetBrainsMono.zip)
+- [JetBrains Mono](https://www.nerdfonts.com/font-downloads)
 
 ## Dotfiles are available for the following:
 - Sway 
 - Waybar 
+- Way-shell
 - Rofi
 - Dunst 
 - SwayLock 
+- Wlogout
 - Kitty
-- Foot
 - ZSH
-- Kvantum 
 
 ## Screenshots
 
 <details>
+<summary><b>Way-shell</b></summary>
+<img src="screenshots/way-shell.png"/>
+</details>
+
+<details>
 <summary><b>Waybar</b></summary>
-<img src="screenshots/waybar-style1.png"/>
-<img src="screenshots/waybar-style2.png"/>
+<img src="screenshots/waybar.png"/>
 </details>
 
 <details>
 <summary><b>Rofi</b></summary>
-<img src="screenshots/rofi-basic.png"/>
-<img src="screenshots/rofi-deathemonic.png"/>
+<img src="screenshots/rofi.png"/>
 </details>
 
-<details>
-<summary><b>Full Desktop</b></summary>
-<img src="screenshots/full-desktop1.png"/>
-<img src="screenshots/full-desktop2.png"/>
-<img src="screenshots/full-desktop3.png"/>
-<img src="screenshots/full-desktop4.png"/>
-<img src="screenshots/full-desktop5.png"/>
-<img src="screenshots/full-desktop6.png"/>
-<img src="screenshots/full-desktop7.png"/>
-</details>

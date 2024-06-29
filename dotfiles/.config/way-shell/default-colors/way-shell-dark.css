@@ -1,0 +1,1085 @@
+@define-color transparent rgba(0, 0, 0, 0.0);
+@define-color base-panel-background #353535;
+@define-color top-panel-background #404040;
+@define-color base-panel-border #424242;
+@define-color scale-trough #deddda;
+@define-color highlight #3584e4;
+@define-color scale-trough-highlight #3584e4;
+@define-color osd-icon-image #ffffff;
+@define-color underlay-background rgba(0, 0, 0, 0.1);
+@define-color underlay-background-heavy rgba(0, 0, 0, 0.5);
+@define-color box-shadow rgba(0, 0, 0, 0.2);
+@define-color panel-background #000000;
+@define-color panel-button-color #ffffff;
+@define-color panel-button-hover rgba(242, 242, 242, 0.25);
+@define-color panel-button-hover2 rgba(242, 242, 242, 0.45);
+@define-color panel-button-active rgba(242, 242, 242, 0.35);
+@define-color scrolled-window-undershoot rgba(35, 35, 35, .35);
+@define-color workspace-button-start-gradient #4299e1;
+@define-color workspace-button-end-gradient #2b6cb0;
+@define-color workspace-bar-urgent #f66151;
+@define-color calendar-text-color #b0b0b0b0;
+@define-color calendar-text-dirty-color #dddddd;
+@define-color calendar-text-dirty-background rgba(242, 242, 242, 0.15);
+@define-color calendar-focus-background rgba(242, 242, 242, 0.05);
+@define-color calendar-focus-selected-background rgba(242, 242, 242, 0.15);
+@define-color notification-background #555555;
+@define-color notification-background-critical #f66151;
+@define-color quick-settings-button #3584e4;
+@define-color quick-settings-button-hover #62a0ea;
+@define-color quick-settings-menu-option #555555;
+@define-color quick-settings-menu-option-hover #9a9996;
+@define-color text-general #ffffff;
+@define-color success #26a269;
+@define-color failure #ed333b;
+
+.active-icon-activated {
+  color: @success;
+}
+
+/*
+ * OSD
+ */
+#osd {
+  background-color: @transparent;
+}
+
+#osd #osd-container {
+  background-color: @base-panel-background;
+  border-radius: 99px;
+  padding: 15px;
+}
+
+#osd #osd-container scale trough slider {
+  background-color: @transparent;
+}
+
+#osd #osd-container scale trough {
+  background-color: @scale-trough;
+}
+
+#osd #osd-container scale trough highlight {
+  background-color: @scale-trough-highlight;
+}
+
+#osd #osd-container image {
+  color: @osd-icon-image;
+}
+
+/*
+ * Underlay
+ */
+.underlay {
+  background-color: @underlay-background;
+}
+
+.underlay:hover,
+.underlay:active {
+  background-color: @underlay-background;
+}
+
+/*
+ * Panel
+ */
+#panel {
+  background-color: @panel-background;
+  font-weight: normal;
+  transition-duration: 250ms;
+}
+
+#panel.activities-visible {
+  background-color: @base-panel-background;
+}
+
+#panel .panel-button label {
+  margin: 4px;
+}
+
+#panel .panel-button {
+  margin: 2px;
+  transition-duration: 150ms;
+  font-weight: bold;
+  background-color: transparent;
+  color: @panel-button-color;
+  box-shadow: none;
+  margin: 2px;
+  padding: 2px;
+  border-radius: 35px;
+}
+
+#panel .panel-button:hover {
+  background-color: @panel-button-hover;
+}
+
+#panel .panel-button:active {
+  background-color: @panel-button-active;
+}
+
+#panel .panel-button-toggled {
+  background-color: @panel-button-hover;
+}
+
+#panel image {
+  margin-left: 6px;
+  margin-right: 6px;
+}
+
+#panel #workspaces-bar {
+  border-radius: 5px;
+}
+
+#panel scrollbar {
+  opacity: 100;
+  margin-bottom: -12px;
+  margin-left: 12px;
+  margin-right: 12px;
+  border-radius: 0px;
+}
+
+#panel scrolledwindow undershoot.left {
+  background: linear-gradient(to right, @scrolled-window-undershoot, transparent);
+}
+
+#panel scrolledwindow undershoot.right {
+  background: linear-gradient(to left, @scrolled-window-undershoot, transparent);
+}
+
+#panel #workspaces-bar-list {
+  font-weight: normal;
+  font-size: 12px;
+  box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.3), inset 0px 0px 0px rgba(255, 255, 255, 0.04);
+}
+
+#panel #workspaces-bar-list .panel-button {
+  margin: 2px;
+  border-radius: 5px;
+}
+
+#panel #workspaces-bar-list .panel-button-toggled {
+  background: linear-gradient(to bottom, @workspace-button-start-gradient, @workspace-button-end-gradient);
+  animation: pulse 1s ease-in;
+}
+
+#panel #workspaces-bar-list .panel-button-urgent {
+  color: @workspace-bar-urgent;
+  animation: pulse 1s ease-in;
+}
+
+#panel .panel-clock-notif {
+  color: @panel-button-color;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.7;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/*
+/ Message Tray
+*/
+#message-tray {
+  padding: 6px;
+  background-color: @base-panel-background;
+  border-radius: 20px;
+  border: 1px solid @base-panel-border;
+  box-shadow: 0 2px 4px 0 @underlay-background;
+  color: #f2f2f2;
+}
+
+#message-tray .calendar-area {
+  padding: 15px;
+}
+
+#message-tray #calendar-month-selector {
+  padding: 0px;
+  margin: 0px;
+}
+
+#message-tray #calendar-month-selector label {
+  font-size: 15px;
+  font-weight: bold;
+  color: @panel-button-color;
+}
+
+#message-tray #calendar-month-selector button {
+  background-color: inherit;
+}
+
+#message-tray #calendar-month-selector button:hover {
+  background-color: @panel-button-hover;
+}
+
+#message-tray #calendar-today {
+  background-color: @base-panel-background;
+  padding-bottom: 15px;
+  color: @calendar-text-color;
+  transition: 250ms;
+}
+
+#message-tray #calendar-today.calendar-today-dirty {
+  color: @calendar-text-dirty-color;
+}
+
+#message-tray #calendar-today.calendar-today-dirty:hover {
+  color: @panel-button-color;
+  background-color: @calendar-text-dirty-background;
+}
+
+#message-tray #calendar-today row label.title {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+#message-tray #calendar-today row label.subtitle {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/*
+ * Message Tray Calendar
+ */
+
+#message-tray calendar {
+  background-color: @base-panel-background;
+}
+
+#message-tray calendar.view {
+  background-color: @base-panel-background;
+  color: @base-panel-background;
+}
+
+#message-tray calendar.view grid {
+  background-color: @base-panel-background;
+  color: @base-panel-background;
+}
+
+#message-tray calendar.view grid label.day-number,
+label.day-name {
+  color: @panel-button-color;
+  padding: 0px;
+  margin: 0px;
+  font-size: 12px;
+}
+
+#message-tray calendar.view grid label.day-number:active {
+  border-radius: 100%;
+}
+
+#message-tray calendar.view grid label.day-number:focus {
+  border-radius: 100%;
+  background-color: @calendar-focus-background;
+  outline-color: @highlight;
+}
+
+#message-tray calendar.view grid label.day-number:focus:selected {
+  border-radius: 100%;
+  background-color: @calendar-focus-selected-background;
+  outline-color: @highlight;
+}
+
+#message-tray calendar.view grid label.day-number.today,
+label.day-number.today:focus {
+  border-radius: 100%;
+  outline-color: @highlight;
+}
+
+#message-tray calendar.view grid label.day-number.today:focus:selected {
+  background-color: @highlight;
+  outline-color: @panel-button-color;
+}
+
+#message-tray calendar.view grid label:selected {
+  border-radius: 100%;
+  background: @highlight;
+}
+
+#message-tray calendar.view grid label.other-month {
+  color: @panel-button-hover;
+}
+
+#message-tray separator {
+  color: @panel-button-color;
+
+}
+
+/*
+ * Message Tray Notifications
+ */
+
+#notifications-list scrolledwindow undershoot.bottom {
+  background: linear-gradient(to top, shade(@scrolled-window-undershoot, .1), transparent);
+}
+
+#notifications-list scrolledwindow undershoot.top {
+  background: linear-gradient(to bottom, shade(@scrolled-window-undershoot, .1), transparent);
+}
+
+#notifications-osd .notification-widget-container {
+  background-color: @notification-background;
+  border-radius: 10px;
+}
+
+#notifications-list .notification-widget-container {
+  background-color: @transparent;
+  padding: 2px;
+  margin: 2px;
+  margin-bottom: 4px;
+}
+
+#notifications-list .notification-widget {
+  background-color: @notification-background;
+  border-radius: 10px;
+}
+
+#notifications-list .notification-group-stack-effect-box1 {
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background: shade(@notification-background, .8);
+  padding: 0px;
+  margin-top: 0px;
+}
+
+#notifications-list .notification-group-stack-effect-box2 {
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background: shade(@notification-background, .7);
+  padding: 0px;
+  margin-top: 0px;
+}
+
+#notification-list .notifications-list-controls {
+  font-weight: bold;
+  font-size: 8px;
+}
+
+#notifications-osd {
+  background-color: @transparent;
+  color: @panel-button-color;
+}
+
+#notification-osd .notification-widget-header,
+#notification-list .notification-widget-header {
+	margin-left: 2px;
+    margin-right: 4px;
+    margin-top: 2px;
+    margin-bottom: 0px;
+}
+
+#notifications-osd .notification-widget-app-icon,
+#notifications-list .notification-widget-app-icon {
+    color: @panel-button-hover2;
+}
+
+#notifications-osd .notification-widget-app-name,
+#notifications-list .notification-widget-app-name {
+    font-size: 16px;
+    font-weight: bold;
+    color: @panel-button-hover2;
+}
+
+#notifications-osd .notification-widget-timer,
+#notifications-list .notification-widget-timer {
+    font-size: 12px;
+    color: @panel-button-hover2;
+    padding: 4px;
+    margin: 4px;
+}
+
+#notifications-osd .notification-widget-button,
+#notifications-list .notification-widget-button {
+  border-radius: 10px;
+  background-color: @notification-background;
+}
+
+#notifications-osd .notification-widget-button-critical,
+#notifications-list .notification-widget-button-critical {
+  border-radius: 10px;
+  background-color: @notification-background-critical;
+}
+
+#notifications-osd .notification-widget-icon,
+#notifications-list .notification-widget-icon {
+  border-radius: 50%;
+  overflow: hidden;
+  padding: 8px;
+}
+
+#notifications-osd .notification-widget label.summary,
+#notifications-list .notification-widget label.summary {
+  font-weight: bold;
+  padding: 2px;
+  margin: 2px;
+}
+
+#notifications-osd .notification-widget label.body,
+#notifications-list .notification-widget label.body {
+  font-size: 14px;
+  padding: 2px;
+  margin: 2px;
+}
+
+#notifications-osd .notification-widget-dismiss-button,
+#notifications-list .notification-widget-dismiss-button {
+    background: @transparent;
+    margin: 2px;
+}
+
+#notifications-osd .notification-widget-dismiss-button,
+#notifications-list .notification-widget-expand-button {
+    background: @transparent;
+    margin: 2px;
+}
+
+#notifications-osd .notification-widget-dismiss-button:hover,
+#notifications-list .notification-widget-dismiss-button:hover {
+    background: @panel-button-hover;
+    margin: 2px;
+}
+
+#notifications-osd .notification-widget-dismiss-button:hover,
+#notifications-list .notification-widget-expand-button:hover {
+    background: @panel-button-hover;
+    margin: 2px;
+}
+
+#notifications-list #notifications-list-controls {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+#notifications-list #notifications-list-controls .notifications-list-clear {
+  margin: 6px;
+}
+
+#notifications-list .notification-widget-media-button {
+    padding: 4px;
+    border-radius: 11px;
+    margin-top: 11px;
+    margin-bottom: 11px;
+}
+
+/* notification widget media player */
+
+#notifications-list .media-player .notification-widget-button:hover {
+	background: @panel-button-hover;
+}
+
+#notifications-list .notification-widget-media-buttons-container {
+	background: @transparent;
+}
+
+#notifications-list .notification-widget-media-button {
+    background: @transparent;
+    border-radius: 10px;
+}
+
+#notifications-list .notification-widget-media-button:hover {
+    background: @success;
+}
+
+/*
+ * Notification Group
+ */
+
+#notifications-list .notification-group-list-header {
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+#notifications-list .notification-group-app-name {
+    padding: 4px;
+    margin: 4px;
+    margin-right: 8px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#notifications-list .notification-group-dismiss-button,
+#notifications-list .notification-group-conceal-button {
+    padding: 2px;
+    margin: 2px;
+}
+
+#notifications-list .notification-group-overlay-expand-button {
+    background: @transparent;
+}
+
+#notifications-list .notification-group-notification-list {
+    margin-bottom: 16px;
+}
+
+/*
+/ Quick Settings
+*/
+#quick-settings {
+  padding: 6px;
+  background-color: @base-panel-background;
+  border-radius: 20px;
+  border: 1px solid @base-panel-border;
+  box-shadow: 0 2px 4px 0 @box-shadow;
+  color: @panel-button-color;
+  transition: background 300ms ease;
+}
+
+/*
+/ Quick Settings Header (note: right side button box spacing set in GtkBox settings to 8)
+*/
+
+#quick-settings-header {
+  padding: 4px;
+}
+
+#quick-settings #quick-settings-header .battery-button {
+  border-radius: 15px;
+  padding: 5px 10px;
+}
+
+#quick-settings #quick-settings-header image,
+#quick-settings #quick-settings-header label {
+  padding: 2px;
+}
+
+#quick-settings #quick-settings-scales {
+  padding: 10px;
+}
+
+#quick-settings #quick-settings-scales button {
+    margin: 2px;
+    background-color: @transparent;
+}
+
+#quick-settings #quick-settings-scales button:hover {
+    margin: 2px;
+    background-color: @panel-button-hover;
+}
+
+#quick-settings #quick-settings-grid {
+  margin: 20px;
+}
+
+/*
+ * Quick Settings Grid
+ */
+#quick-settings #quick-settings-grid {
+  margin: 4px;
+}
+
+#quick-settings .quick-settings-grid-button {
+  padding: 3px;
+  margin: 0px;
+  margin-bottom: 4px;
+}
+
+#quick-settings .quick-settings-grid-button button:hover {
+  background-color: @quick-settings-button-hover;
+}
+
+#quick-settings .quick-settings-grid-button button:active {
+  background-color: @quick-settings-button;
+}
+
+#quick-settings .quick-settings-grid-button-icon {
+  padding: 8px;
+  margin: 4px;
+}
+
+#quick-settings .quick-settings-grid-button-toggle {
+  border-top-left-radius: 99px;
+  border-bottom-left-radius: 99px;
+  background-color: @quick-settings-button;
+  padding: 2px;
+}
+
+#quick-settings .quick-settings-grid-button-toggle.no-revealer {
+  border-radius: 99px;
+}
+
+#quick-settings .quick-settings-grid-button-toggle.off {
+  background-color: @panel-button-active;
+}
+
+#quick-settings .quick-settings-grid-button-toggle.off:hover {
+  background-color: @panel-button-hover;
+}
+
+#quick-settings .quick-settings-grid-button-toggle.off:active {
+  background-color: @panel-button-active;
+}
+
+#quick-settings .quick-settings-grid-button-reveal-hidden {
+  border-top-right-radius: 99px;
+  border-bottom-right-radius: 99px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  background-color: @quick-settings-button;
+  border-left: 0px solid black;
+  color: rgba(0, 0, 0, 0);
+}
+
+#quick-settings .quick-settings-grid-button-reveal-visible {
+  border-top-right-radius: 99px;
+  border-bottom-right-radius: 99px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  background-color: @quick-settings-button;
+  border-left: 1px solid black;
+  color: #ffffff;
+}
+
+#quick-settings .with-subtitle .quick-settings-grid-button-title {
+    margin-top: 2px;
+}
+
+#quick-settings .quick-settings-grid-button-subtitle {
+  font-weight: normal;
+  font-size: 14px;
+}
+
+#quick-settings #quick-settings-grid .quick-settings-grid-button-transparent * {
+  background-color: rgba(0, 0, 0, 0);
+  color: rgba(0, 0, 0, 0);
+}
+
+#quick-settings #quick-settings-grid .quick-settings-grid-button-transparent button:hover {
+  background-color: rgba(0, 0, 0, 0);
+  color: rgba(0, 0, 0, 0);
+}
+
+/*
+ * Quick Settings Menu Widget
+ */
+
+#quick-settings-menu {
+  padding: 20px;
+}
+
+#quick-settings-menu #container {
+  padding: 5px;
+  border-radius: 20px;
+  background: linear-gradient(@top-panel-background, shade(@top-panel-background, 0.9));
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
+}
+
+#quick-settings-menu #container button {
+  background-color: inherit;
+  font-weight: normal;
+  font-size: 16px;
+}
+
+#quick-settings-menu #container button:hover {
+  background-color: @quick-settings-menu-option-hover;
+}
+
+#quick-settings-menu #options-container button:hover {
+  background-color: @quick-settings-menu-option-hover;
+}
+
+#quick-settings-menu #container #title-container {
+  padding: 4px;
+}
+
+#quick-settings-menu #container #title-container label,
+#quick-settings-menu #container #title-container image {
+  padding: 4px;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+#quick-settings-menu #container #title-container #icon-container {
+  margin: 4px;
+  padding: 4px;
+  background-color: @highlight;
+  border-radius: 100px;
+}
+
+#quick-settings-menu #container #options-container {
+  margin: 2px;
+}
+
+#quick-settings-menu #container #options-container .confirm-button {
+  color: #ffffff;
+  background-color: @success;
+  margin: 8px;
+}
+
+#quick-settings-menu #container #options-container .confirm-button:hover {
+  background-color: @success;
+}
+
+#quick-settings-menu #container #options-container dropdown popover.background contents {
+  background-color: @quick-settings-menu-option;
+  color: @panel-button-color;
+}
+
+/*
+ * Quick Settings Menu Wifi Options
+ */
+
+#quick-settings-menu #container #options-container .quick-settings-menu-option-wifi-password-entry-container {
+  padding: 4px;
+  margin: 4px;
+}
+
+#quick-settings-menu #container #options-container .quick-settings-menu-option-wifi-password-entry-container image,
+#quick-settings-menu #container #options-container .quick-settings-menu-option-wifi-password-entry-container label {
+  padding: 10px;
+}
+
+#quick-settings-menu #container #options-container .quick-settings-menu-option-wifi image,
+#quick-settings-menu #container #options-container .quick-settings-menu-option-wifi label {
+  padding-left: 7px;
+  padding-right: 4px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+#quick-settings-menu #container #options-container .quick-settings-menu-option-wifi entry {
+  margin: 6px;
+}
+
+.failure-banner {
+  background-color: @failure;
+  font-size: 20px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+/*
+ * Quick Settings Menu Power Profiles Options
+ */
+
+#quick-settings-menu #container #options-container .quick-settings-menu-option-power-profiles image,
+#quick-settings-menu #container #options-container .quick-settings-menu-option-power-profiles label {
+  padding-left: 7px;
+  padding-right: 4px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+/*
+ * Quick Settings Menu Mixer Options
+ */
+
+#quick-settings-menu #container #options-container .quick-settings-menu-option-mixer image,
+#quick-settings-menu #container #options-container .quick-settings-menu-option-mixer label {
+  padding-left: 7px;
+  padding-right: 4px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+#quick-settings-menu #container #options-container .mixer-link {
+  margin-left: 38px;
+}
+
+/* these settings darken all other components of the quick-settings widget other
+ * then quick-settings menu when the menu is displayed
+ *
+ * these override the above settings for each ID to keep them below.
+ */
+
+#quick-settings.focused {
+    background: shade(@top-panel-background, .5);
+}
+
+#quick-settings.focused #quick-settings-scales {
+    color: shade(@text-general, .3);
+}
+#quick-settings.focused #quick-settings-header {
+    color: shade(@text-general, .3);
+}
+#quick-settings.focused #quick-settings-scales scale slider {
+    background: shade(@scale-trough, .3);
+}
+#quick-settings.focused #quick-settings-scales scale trough {
+    background: shade(@scale-trough, .3);
+}
+#quick-settings.focused #quick-settings-scales scale trough highlight {
+    background: shade(@scale-trough-highlight, .3);
+}
+
+#quick-settings.focused .quick-settings-grid-button-toggle {
+    background: shade(@quick-settings-button, .5);
+    color: shade(@text-general, .5);
+}
+
+#quick-settings.focused .quick-settings-grid-button-toggle:hover {
+    background: shade(@quick-settings-button, .6);
+    color: shade(@text-general, .6);
+}
+
+#quick-settings.focused .quick-settings-grid-button-toggle.no-revealer {
+    background: shade(@quick-settings-button, .5);
+    color: shade(@text-general, .5);
+}
+
+#quick-settings.focused .quick-settings-grid-button-toggle.no-revealer:hover {
+    background: shade(@quick-settings-button, .6);
+    color: shade(@text-general, .6);
+}
+
+#quick-settings.focused .quick-settings-grid-button-reveal-hidden {
+    background: shade(@quick-settings-button, .5);
+    color: shade(@text-general, .5);
+}
+
+#quick-settings.focused .quick-settings-grid-button-reveal-hidden:hover {
+    background: shade(@quick-settings-button, .6);
+    color: shade(@text-general, .6);
+}
+
+#quick-settings.focused .quick-settings-grid-button-reveal-visible {
+    background: shade(@quick-settings-button, .5);
+    color: shade(@text-general, .5);
+}
+
+#quick-settings.focused .quick-settings-grid-button-toggle.off {
+  background-color: shade(@panel-button-active, .5);
+}
+
+#quick-settings.focused .quick-settings-grid-button-toggle.off:hover {
+  background-color: shade(@panel-button-hover, .6);
+}
+
+#quick-settings.focused .quick-settings-grid-button-toggle.off:active {
+  background-color: shade(@panel-button-active, .5)
+}
+
+/*
+ * Activities Widget
+ */
+#activities {
+  background: @transparent;
+}
+
+#activities button {
+  background: @base-panel-background;
+}
+
+#activities #activities-container {
+  background: @base-panel-background;
+  color: @text-general;
+}
+
+#activities #activities-container #search-container #search-entry {
+    border-radius: 99px;
+    color: @text-general;
+    margin: 40px;
+    margin-bottom: 80px;
+    margin-top: 80px;
+}
+
+#activities .activities-app-widget button:hover {
+    background: @panel-button-hover;
+    border-radius: 40px;
+}
+
+#activities .activities-workspace-overlay label {
+    font-weight: bold;
+    color: @text-general;
+}
+
+#activities .activities-workspace-button {
+    background: @top-panel-background;
+    padding: 12px;
+	margin: 4px;
+}
+
+#activities .activities-workspace-button:hover {
+    background: @panel-button-hover;
+}
+
+/*
+ * Dialog Overlay
+ */
+#dialog-overlay {
+    background: @underlay-background-heavy
+}
+
+#dialog-overlay #dialog-overlay-container {
+    background: @base-panel-background;
+    color: @text-general;
+    border-radius: 10px;
+}
+
+#dialog-overlay #dialog-overlay-container .dialog-overlay-heading {
+    font-size: 24px;
+    font-weight: bold;
+    padding: 14px;
+    margin: 4px;
+    margin-top: 12px;
+}
+
+#dialog-overlay #dialog-overlay-container .dialog-overlay-body {
+    font-size: 16px;
+    padding: 8px;
+    margin: 4px;
+}
+
+#dialog-overlay #dialog-overlay-container button:hover {
+    background: @panel-button-hover;
+}
+
+#dialog-overlay #dialog-overlay-container .dialog-overlay-confirm, .dialog-overlay-cancel {
+    padding: 0px;
+    margin-top: 14px;
+    border-radius: 0px;
+    background: @transparent;
+    border-top: 1px solid @top-panel-background;
+}
+
+#dialog-overlay #dialog-overlay-container .dialog-overlay-cancel {
+    border-right: 1px solid @top-panel-background;
+}
+#dialog-overlay #dialog-overlay-container .dialog-overlay-confirm {
+	color: @success;
+}
+
+/*
+ * App Switcher
+ */
+
+#app-switcher {
+    color: @text-general;
+    background: @base-panel-background;
+}
+
+#app-switcher #app-switcher-list {
+    margin: 10px;
+}
+
+#app-switcher, .app-switcher-app-widget-instances-win {
+    border-radius: 20px;
+}
+
+#app-switcher .app-switcher-app-widget-button {
+    background: @base-panel-background;
+    border-radius: 20px;
+    padding: 6px;
+    margin: 6px;
+}
+
+#app-switcher .app-switcher-app-widget-button.selected {
+    background: @panel-button-hover;
+}
+
+#app-switcher .app-switcher-app-widget-button.selected:hover {
+    background: @panel-button-hover2;
+}
+
+#app-switcher button:hover {
+    background: @top-panel-background;
+}
+
+#app-switcher .app-switcher-app-widget label {
+    margin: 2px;
+    padding: 2px;
+    font-size: 12px;
+}
+
+/*
+ * Workspace Switcher
+ */
+
+#workspace-switcher {
+    color: @text-general;
+    background: @base-panel-background;
+    font-size: 18px;
+    border-radius: 20px;
+}
+
+#workspace-switcher .workspace-entry {
+    color: @text-general;
+    padding: 4px;
+    margin: 4px;
+}
+
+#workspace-switcher #search-entry {
+    margin: 20px;
+    margin-bottom: 0px;
+    padding: 8px;
+    border-radius: 10px;
+}
+
+#workspace-switcher #workspace-list {
+    background: @top-panel-background;
+    margin: 20px;
+    border-radius: 20px;
+}
+
+#workspace-switcher row:selected {
+   border-top-left-radius: 20px;
+   border-top-right-radius: 20px;
+ }
+
+#workspace-switcher row:selected {
+   border-bottom-left-radius: 20px;
+   border-bottom-right-radius: 20px;
+}
+
+#workspace-switcher row {
+   border-top-left-radius: 20px;
+   border-top-right-radius: 20px;
+   border-bottom-left-radius: 20px;
+   border-bottom-right-radius: 20px;
+}
+
+/*
+ * Output Switcher
+ */
+
+#output-switcher {
+    color: @text-general;
+    background: @base-panel-background;
+    font-size: 18px;
+    border-radius: 20px;
+}
+
+#output-switcher .output-entry {
+    color: @text-general;
+    padding: 4px;
+    margin: 4px;
+}
+
+#output-switcher #search-entry {
+    margin: 20px;
+    margin-bottom: 0px;
+    padding: 8px;
+    border-radius: 10px;
+}
+
+#output-switcher #output-list {
+    background: @top-panel-background;
+    margin: 20px;
+    border-radius: 20px;
+}
+
+#output-switcher row:selected {
+   border-top-left-radius: 20px;
+   border-top-right-radius: 20px;
+ }
+
+#output-switcher row:selected {
+   border-bottom-left-radius: 20px;
+   border-bottom-right-radius: 20px;
+}
+
+#output-switcher row {
+   border-top-left-radius: 20px;
+   border-top-right-radius: 20px;
+   border-bottom-left-radius: 20px;
+   border-bottom-right-radius: 20px;
+}

@@ -1,0 +1,6 @@
+export QT_QPA_PLATFORMTHEME=qt6ct
+export QT_QPA_PLATFORM=wayland
+export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+export WLR_NO_HARDWARE_CURSORS=1
+#export WLR_RENDERER=vulkan
+export PATH=$PATH:$HOME/.local/bin

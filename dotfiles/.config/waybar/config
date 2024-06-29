@@ -1,0 +1,118 @@
+{
+  "layer": "top", // Waybar at top layer
+  "position": "top", // Waybar position (top|bottom|left|right)
+  // "width": 1280, // Waybar width
+  // Choose the order of the modules
+  "modules-left": ["sway/workspaces"],
+  "modules-center": ["clock"],
+  "modules-right": [
+    "pulseaudio",
+    "custom/swayidle",
+    "backlight",
+    "battery",
+    "blueman-applet",
+    "tray",
+    "custom/notification",
+    "custom/lock",
+    "custom/power",
+  ],
+  "sway/workspaces": {
+    "disable-scroll": true,
+    "sort-by-name": true,
+    "persistent-workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": [],
+    },
+    "format": " {icon}",
+    "format-icons": {
+      "default": "",
+    },
+  },
+  "custom/music": {
+    "format": "  {}",
+    "escape": true,
+    "interval": 5,
+    "tooltip": false,
+    "exec": "playerctl metadata --format='{{ title }}'",
+    "on-click": "playerctl play-pause",
+    "max-length": 50,
+  },
+  "clock": {
+    "timezone": "America/São_Paulo",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format-alt": " {:%d/%m/%Y}",
+    "format": " {:%H:%M}",
+  },
+  "custom/swayidle": {
+    "exec": "$HOME/.local/share/waybar/modules/waybar-swayidle status",
+    "interval": "once",
+    "signal": 1,
+    "return-type": "json",
+    "tooltip": true,
+    "format": "{}",
+    "on-click": "$HOME/.local/share/waybar/modules/waybar-swayidle toggle",
+  },
+  "custom/notification": {
+    "exec": "dunstctl get-pause-level",
+    "on-click": "dunstctl set-paused toggle",
+    "interval": "once",
+    "format": "",
+    "format-alt": "",
+    "icon-size": 24,
+    "spacing": 10,
+  },
+  "tray": {
+    "icon-size": 20,
+    "spacing": 10,
+  },
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{icon}",
+    "format-icons": ["", "", "", "", "", "", "", "", ""],
+  },
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15,
+    },
+    "format": "{icon}",
+    "format-charging": "",
+    "format-plugged": "",
+    "format-alt": "{icon}",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+    ],
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "",
+    "format-icons": {
+      "default": ["", "", " "],
+    },
+    "scroll-step": 5, // "scroll-step": 1, // %, can be a float
+    "on-click": "pavucontrol",
+  },
+  "custom/lock": {
+    "tooltip": false,
+    "on-click": "~/.config/sway/scripts/swaylock.sh",
+    "format": "",
+  },
+  "custom/power": {
+    "tooltip": false,
+    "on-click": "wlogout",
+    "format": "襤",
+  },
+}
