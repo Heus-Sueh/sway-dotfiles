@@ -1,0 +1,45 @@
+/*
+* GTK Colors
+* Generated with Matugen
+*/
+
+@define-color accent_bg_color {{colors.primary.default.hex}};
+@define-color accent_fg_color white;
+@define-color accent_color {{colors.primary.default.hex}};
+@define-color destructive_bg_color {{colors.error.default.hex}};
+@define-color destructive_fg_color {{colors.on_error.default.hex}};
+@define-color destructive_color {{colors.error.default.hex}};
+@define-color success_bg_color {{colors.tertiary_container.default.hex}};
+@define-color success_fg_color {{colors.on_tertiary_container.default.hex}};
+@define-color success_color {{colors.success.default.hex}};
+@define-color warning_bg_color {{colors.secondary.default.hex}};
+@define-color warning_fg_color {{colors.on_secondary.default.hex}};
+@define-color warning_color {{colors.secondary.default.hex}};
+@define-color error_bg_color {{colors.error_container.default.hex}};
+@define-color error_fg_color {{colors.on_surface.default.hex}};
+@define-color error_color {{colors.error.default.hex}};
+@define-color window_bg_color {{colors.surface.default.hex}};
+@define-color window_fg_color {{colors.on_surface.default.hex}};
+@define-color view_bg_color {{colors.surface.default.hex}};
+@define-color view_fg_color {{colors.on_surface.default.hex}};
+@define-color headerbar_bg_color {{colors.surface_variant.default.hex}};
+@define-color headerbar_fg_color {{colors.on_surface_variant.default.hex}};
+@define-color headerbar_border_color {{colors.semi_transparent_black.default.rgba}};
+@define-color headerbar_backdrop_color {{colors.surface.default.hex}};
+@define-color headerbar_shade_color {{colors.transparent_black.default.rgba}};
+@define-color card_bg_color {{colors.surface.default.hex}};
+@define-color card_fg_color {{colors.on_surface.default.hex}};
+@define-color card_shade_color {{colors.transparent_black.default.rgba}};
+@define-color dialog_bg_color {{colors.surface.default.hex}};
+@define-color dialog_fg_color {{colors.on_surface.default.hex}};
+@define-color popover_bg_color {{colors.surface_variant.default.hex}};
+@define-color popover_fg_color {{colors.on_surface_variant.default.hex}};
+@define-color thumbnail_bg_color {{colors.white.default.hex}};
+@define-color thumbnail_fg_color {{colors.semi_transparent_black.default.rgba}};
+@define-color shade_color {{colors.transparent_black.default.rgba}};
+@define-color scrollbar_outline_color {{colors.outline.default.hex}};
+@define-color incognito_bg_color {{colors.light_pastel_blue.default.hex}};
+@define-color sidebar_bg_color @window_bg_color;
+@define-color sidebar_fg_color @window_fg_color;
+@define-color sidebar_border_color @window_bg_color;
+@define-color sidebar_backdrop_color @window_bg_color;

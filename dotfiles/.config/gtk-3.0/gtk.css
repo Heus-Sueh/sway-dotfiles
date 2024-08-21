@@ -3,20 +3,47 @@
 * Generated with Matugen
 */
 
-@define-color accent_color #8bd0ef;
-@define-color accent_fg_color #001f2a;
-@define-color accent_bg_color #8bd0ef;
-@define-color window_bg_color #0f1417;
-@define-color window_fg_color #dfe3e7;
-@define-color headerbar_bg_color #0f1417;
-@define-color headerbar_fg_color #dfe3e7;
-@define-color popover_bg_color #0f1417;
-@define-color popover_fg_color #dfe3e7;
-@define-color view_bg_color #0f1417;
-@define-color view_fg_color #dfe3e7;
-@define-color card_bg_color #0f1417;
-@define-color card_fg_color #dfe3e7;
+@define-color accent_color #bdc2ff;
+@define-color accent_fg_color #000965;
+@define-color accent_bg_color #bdc2ff;
+@define-color window_bg_color #12131a;
+@define-color window_fg_color #e3e1eb;
+@define-color headerbar_bg_color #12131a;
+@define-color headerbar_fg_color #e3e1eb;
+@define-color popover_bg_color #12131a;
+@define-color popover_fg_color #e3e1eb;
+@define-color view_bg_color #12131a;
+@define-color view_fg_color #e3e1eb;
+@define-color card_bg_color #12131a;
+@define-color card_fg_color #e3e1eb;
 @define-color sidebar_bg_color @window_bg_color;
 @define-color sidebar_fg_color @window_fg_color;
 @define-color sidebar_border_color @window_bg_color;
 @define-color sidebar_backdrop_color @window_bg_color;
+
+/********************** General Typography * */
+.large-title { font-weight: 300; font-size: 24pt; }
+
+.title-1, .h1 { font-weight: 800; font-size: 20pt; }
+
+.title-2, .h2 { font-weight: 800; font-size: 15pt; }
+
+.title-3, .h3 { font-weight: 700; font-size: 15pt; }
+
+.title-4, .h4 { font-weight: 700; font-size: 13pt; }
+
+.heading { font-weight: 700; font-size: 11pt; }
+
+.body { font-weight: 400; font-size: 11pt; }
+
+.caption-heading { font-weight: 700; font-size: 9pt; }
+
+.caption { font-weight: 400; font-size: 9pt; }
+
+.category-label { color: rgba(189, 230, 251, 0.8); font-weight: 700; }
+
+
+/*********** Firefox * */
+#MozillaGtkWidget.background { border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
+
+#MozillaGtkWidget.background scrollbar { background-color: transparent; border-color: transparent; }

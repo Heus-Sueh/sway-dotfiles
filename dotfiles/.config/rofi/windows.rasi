@@ -1,0 +1,155 @@
+@import "colors.rasi"
+
+* {
+  accent: @primary;
+  text: @on-primary;
+  normal: @secondary-fixed;
+  on-normal: @on-secondary-fixed;
+  selected: @primary;
+  on-selected: @on-primary;
+  border: @primary;
+  background: @surface;
+  background-alt: @surface-container;
+  handle: @primary;
+  placeholder: @primary;
+  on-search: @primary;
+}
+
+configuration {
+    show-icons: true;
+    display-drun: "";
+    drun-display-format: "{icon} {name}";
+    disable-history: false;
+    click-to-exit: false;
+    location: 0;
+}
+
+window {
+    border-radius: 8px;
+    width: 500px;
+    anchor: center;
+    x-offset: 0;
+    y-offset: 0;
+    background-color: @background;
+    border-color: @border;
+}
+
+prompt {
+    enabled: true;
+    padding: 8px;
+    text-color: @on-search;
+    background-color: @background-alt;
+}
+
+textbox-prompt-colon {
+    expand: false;
+    str: "";
+    border-radius: 100%;
+    padding: 8px 12px 8px 12px;
+    text-color: @on-search;
+    background-color: @background-alt;
+}
+
+entry {
+    placeholder: "Search...";
+    placeholder-color: @placeholder;
+    blink: true;
+    background-color: @background;
+    border: 0px 0px 2px 0px;
+    border-radius: 10px;
+    padding: 8px;
+    text-color: @primary;
+    border-color: @border;
+}
+
+inputbar {
+  layout: vertical;
+  children: [ entry ];
+  expand: false;
+  background-color: @background-alt;
+  margin: 0px;
+  padding: 5px;
+  border-radius: 10px;
+  position: center;
+}
+
+case-indicator {
+    spacing: 0;
+}
+
+listview {
+    enabled: true;
+    columns: 1;
+    lines: 5;
+    spacing: 4px;
+    cycle: true;
+    dynamic: true;
+    layout: vertical;
+    background-color: @background;
+    padding: 10px;
+    border-radius: 8px;
+    border-color: transparent;
+}
+
+mainbox {
+    children: [ inputbar, listview ];
+    spacing: 15px;
+    padding: 15px;
+    background-color: @background-alt;
+    border-radius: 8px;
+}
+
+element {
+    enabled: true;
+    orientation: horizontal;
+    border-radius: 10px;
+    padding: 5px;
+    background-color: @normal;
+    text-color: @on-normal;
+}
+
+element-icon {
+    size: 36px;
+    background-color: @normal;
+    text-color: @on-normal;
+}
+
+element-text {
+  background-color: @normal;
+  text-color: @on-normal;
+}
+
+element alternate.normal,
+element normal.active,
+element normal.normal {
+  background-color: @normal;
+  text-color: @on-normal;
+}
+
+element-icon selected,
+element-text selected,
+element selected.active,
+element selected.normal {
+  background-color: @selected;
+  text-color: @on-selected;
+}
+
+button.normal {
+  background-color: @normal;
+  text-color: @on-normal;
+}
+
+button.selected {
+    background-color: @selected;
+    text-color:       @on-selected;
+}
+
+scrollbar {
+    background-color: @background-alt;
+    width:        4px;
+    border:       0;
+    handle-width: 8px;
+    handle-color: @handle;
+    padding:      0;
+}
+

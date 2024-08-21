@@ -1,0 +1,175 @@
+# Generated colors from Matugen
+
+[Colors]
+
+background = "#12131a"
+
+error = "#ffb4ab"
+
+error_container = "#93000a"
+
+inverse_on_surface = "#303037"
+
+inverse_primary = "#4452c4"
+
+inverse_surface = "#e3e1eb"
+
+light_pastel_blue = "#fffeff"
+
+light_pastel_blue_container = "#d7e3f0"
+
+light_pastel_blue_source = "#d7e3f0"
+
+light_pastel_blue_value = "#d7e3f0"
+
+on_background = "#e3e1eb"
+
+on_error = "#690005"
+
+on_error_container = "#ffdad6"
+
+on_light_pastel_blue = "#26323b"
+
+on_light_pastel_blue_container = "#3d4953"
+
+on_primary = "#091a96"
+
+on_primary_container = "#bcc1ff"
+
+on_primary_fixed = "#000965"
+
+on_primary_fixed_variant = "#2a38ac"
+
+on_secondary = "#282d57"
+
+on_secondary_container = "#c3c7fb"
+
+on_secondary_fixed = "#121741"
+
+on_secondary_fixed_variant = "#3f436f"
+
+on_semi_transparent_black = "#303030"
+
+on_semi_transparent_black_container = "#ffffff"
+
+on_success = "#00391f"
+
+on_success_container = "#ffffff"
+
+on_surface = "#e3e1eb"
+
+on_surface_variant = "#c6c5d5"
+
+on_tertiary = "#621000"
+
+on_tertiary_container = "#ffb3a2"
+
+on_tertiary_fixed = "#3d0700"
+
+on_tertiary_fixed_variant = "#84250d"
+
+on_transparent_black = "#303030"
+
+on_transparent_black_container = "#ffffff"
+
+on_urgent = "#690000"
+
+on_urgent_container = "#000000"
+
+on_white = "#2f3131"
+
+on_white_container = "#464849"
+
+outline = "#908f9f"
+
+outline_variant = "#454653"
+
+primary = "#bdc2ff"
+
+primary_container = "#13229b"
+
+primary_fixed = "#dfe0ff"
+
+primary_fixed_dim = "#bdc2ff"
+
+scrim = "#000000"
+
+secondary = "#bfc3f6"
+
+secondary_container = "#3f436f"
+
+secondary_fixed = "#dfe0ff"
+
+secondary_fixed_dim = "#bfc3f6"
+
+semi_transparent_black = "#c6c6c6"
+
+semi_transparent_black_container = "#000000"
+
+semi_transparent_black_source = "#000000"
+
+semi_transparent_black_value = "#000000"
+
+shadow = "#000000"
+
+source_color = "#13229b"
+
+success = "#79daa0"
+
+success_container = "#1b8553"
+
+success_source = "#1b8553"
+
+success_value = "#1b8553"
+
+surface = "#12131a"
+
+surface_bright = "#383840"
+
+surface_container = "#1f1f26"
+
+surface_container_high = "#292931"
+
+surface_container_highest = "#34343c"
+
+surface_container_low = "#1b1b22"
+
+surface_container_lowest = "#0d0e14"
+
+surface_dim = "#12131a"
+
+surface_variant = "#454653"
+
+tertiary = "#ffb4a3"
+
+tertiary_container = "#6c1300"
+
+tertiary_fixed = "#ffdad2"
+
+tertiary_fixed_dim = "#ffb4a3"
+
+transparent_black = "#c6c6c6"
+
+transparent_black_container = "#000000"
+
+transparent_black_source = "#000000"
+
+transparent_black_value = "#000000"
+
+urgent = "#ffb4a8"
+
+urgent_container = "#ff5540"
+
+urgent_source = "#ff0000"
+
+urgent_value = "#ff0000"
+
+white = "#ffffff"
+
+white_container = "#e2e2e2"
+
+white_source = "#ffffff"
+
+white_value = "#ffffff"
+
+

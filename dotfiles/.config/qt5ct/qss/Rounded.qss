@@ -1,0 +1,17 @@
+/* Botões */
+QPushButton {
+    background-color: palette(window);
+    color: palette(bright);
+    border: 1px solid palette(highlight);;
+    padding: 8px 16px;
+    border-radius: 20px;
+}
+
+QPushButton:hover {
+    background-color: palette(highlight);
+}
+
+QPushButton:disabled {
+    background-color: palette(window);
+    color: palette(window);
+}

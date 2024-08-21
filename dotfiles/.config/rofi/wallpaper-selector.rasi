@@ -1,5 +1,22 @@
 /* config - Wallpaper Selector */
 
+/* ---- Load colors ---- */
+@import "~/.config/rofi/colors.rasi"
+
+/* ---- Global Properties ---- */
+* {
+    background-alt:              @background; 
+    selected:                    @primary;  
+    on-selected:                 @on-primary;
+    active:                      @primary-container; 
+    on-active:                   @on-primary;
+    urgent:                      @error;
+    on-urgent:                   @on-error;
+    text-selected:               @on-primary;
+    text-color:                  @on-surface;
+    border-color:                @primary;
+}
+
 /* ---- Configuration ---- */
 configuration {
     modi:                        "drun";
@@ -15,24 +32,6 @@ configuration {
 	  dpi:						 1;
     font:                        "JetBrains Mono Nerd Font 10";
 }
-
-/* ---- Load colors ---- */
-@import "~/.config/rofi/colors.rasi"
-
-/* ---- Global Properties ---- */
-* {
-    background-alt:              @background; 
-    selected:                    @primary-container;  
-    on-selected:                 @on-primary;
-    active:                      @primary; 
-    on-active:                   @on-primary;
-    urgent:                      @error;
-    on-urgent:                   @on-error;
-    text-selected:               @on-primary;
-    text-color:                  @on-surface;
-    border-color:                @primary-container;
-}
-
 
 /* ---- Window ---- */
 window {

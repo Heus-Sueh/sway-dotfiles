@@ -1,0 +1,36 @@
+image=/var/home/heus/Pictures/Wallpapers/wallhaven/pixelart/wallhaven-dg1xqg.png
+scaling=fill
+bs-hl-color=ffb4a3 # Sets the color of backspace highlight segments.
+key-hl-color=bdc2ff # Sets the color of the key press highlight segments.
+# Capslock
+caps-lock-bs-hl-color=ffb4a3 # Sets the color of backspace highlight segments when Caps Lock is active.
+caps-lock-key-hl-color=bfc3f6 # Sets the color of the key press highlight segments when Caps Lock is active.
+# Inside the ring | circle
+inside-color=12131a
+inside-clear-color=79daa0
+inside-caps-lock-color=bfc3f6
+inside-ver-color=00000000
+inside-wrong-color=ffb4ab
+# Layout
+#layout-bg-color=13229b
+#layout-border-color=908f9f
+#layout-text-color=091a96
+# Line
+# line-color=00000000
+# line-clear-color=00000000
+# line-caps-lock-color=00000000
+# line-ver-color=00000000
+# line-wrong-color=00000000
+# Ring | border of the circle
+ring-color=908f9f
+ring-clear-color=00391f
+ring-caps-lock-color=908f9f
+ring-ver-color=908f9f
+ring-wrong-color=690005
+separator-color=00000000
+# Text
+text-color=091a96
+text-clear-color=00391f
+text-caps-lock-color=091a96
+text-ver-color=621000 # Sets the color of the text when verifying.
+text-wrong-color=690005

@@ -1,5 +1,20 @@
 @import "colors.rasi"
 
+* {
+  accent: @primary;
+  text: @on-primary;
+  normal: @secondary-fixed;
+  on-normal: @on-secondary-fixed;
+  selected: @primary;
+  on-selected: @on-primary;
+  border: @primary;
+  background: @surface;
+  background-alt: @surface-container;
+  handle: @primary;
+  placeholder: @primary;
+  on-search: @primary;
+}
+
 configuration {
     show-icons: true;
     display-drun: "";
@@ -15,14 +30,14 @@ window {
     anchor: center;
     x-offset: 0;
     y-offset: 0;
-    background-color: @surface;
-    border-color: @primary;
+    background-color: @background;
+    border-color: @border;
 }
 
 prompt {
     enabled: true;
     padding: 8px;
-    text-color: @primary;
+    text-color: @on-search;
 }
 
 textbox-prompt-colon {
@@ -30,19 +45,19 @@ textbox-prompt-colon {
     str: "";
     border-radius: 100%;
     padding: 8px 12px 8px 12px;
-    text-color: @primary;
+    text-color: @on-search;
 }
 
 entry {
     placeholder: "Search...";
-    placeholder-color: @on-primary;
+    placeholder-color: @placeholder;
     blink: true;
-    background-color: @surface;
+    background-color: @background;
     border: 0px 0px 2px 0px;
     border-radius: 10px;
     padding: 8px;
     text-color: @primary;
-    border-color: @primary;
+    border-color: @border;
 }
 
 inputbar {
@@ -61,13 +76,13 @@ case-indicator {
 
 listview {
     enabled: true;
-    columns: 3;
+    columns: 1;
     lines: 5;
     spacing: 4px;
     cycle: false;
     dynamic: true;
     layout: vertical;
-    background-color: @surface;
+    background-color: @background;
     padding: 10px;
     border-radius: 8px;
     border-color: transparent;
@@ -77,7 +92,7 @@ mainbox {
     children: [ inputbar, listview ];
     spacing: 15px;
     padding: 15px;
-    background-color: @surface-container;
+    background-color: @background-alt;
     border-radius: 8px;
 }
 
@@ -104,56 +119,21 @@ element normal.normal {
 
 element selected.active,
 element selected.normal {
-  background-color: @on-primary-fixed-variant;
-  text-color: @primary-fixed;
+  background-color: @selected;
+  text-color: @on-selected;
 }
 
 button.selected {
-    background-color: @primary;
-    text-color:       @on-primary;
+    background-color: @selected;
+    text-color:       @on-selected;
 }
 
 scrollbar {
-    background-color: @surface-container;
+    background-color: @background-alt;
     width:        4px;
     border:       0;
     handle-width: 8px;
-    handle-color: @on-primary-fixed-variant;
+    handle-color: @handle;
     padding:      0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

@@ -1,0 +1,106 @@
+#!/usr/bin/env bash
+set -euox pipefail
+# Requires hypridle or swayidle
+
+SIGNAL=6
+pidf="/tmp/idle_script"
+
+# Time settings in seconds
+LOCK_TIMEOUT=$((5 * 60))            # 5 minutes
+DPMS_TIMEOUT=$((10 * 60))           # 10 minutes
+SUSPEND_TIMEOUT=$((15 * 60))        # 15 minutes
+CHECK_INTERVAL=30                   # 30 seconds
+HYPRIDLE_CHECK_INTERVAL=$((5 * 60)) # 5 minutes
+
+# Determine which idle manager is available
+if command -v hypridle &>/dev/null; then
+	procname=hypridle
+elif command -v swayidle &>/dev/null; then
+	procname=swayidle
+else
+	echo "ERROR: Neither hypridle nor swayidle is installed. Please install one of them and try again."
+	exit 1
+fi
+
+status() {
+	if [ -s "$pidf" ]; then
+		printf '{"text":"󰒲", "tooltip":"Running\\nName: %s\\nPID: %s"}\n' "$procname" "$(awk 'NR==1{print}' "$pidf")"
+	else
+		printf '{"text":"󰒳", "tooltip":"Stopped"}\n'
+	fi
+}
+
+toggle() {
+	if [ -s "$pidf" ]; then
+		off
+	else
+		on
+	fi
+}
+
+check_media_playing() {
+	if playerctl status 2>/dev/null | grep -q "Playing"; then
+		return 0
+	else
+		return 1
+	fi
+}
+
+on() {
+	if [ -s "$pidf" ]; then
+		echo "Idle script is already running."
+		exit 1
+	fi
+
+	if [ "${procname}" = "swayidle" ]; then
+		swayidle -w \
+			timeout "$LOCK_TIMEOUT" 'swaylock' \
+			timeout "$DPMS_TIMEOUT" 'while check_media_playing; do sleep "$CHECK_INTERVAL"; done; swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+			timeout "$SUSPEND_TIMEOUT" 'while check_media_playing; do sleep "$CHECK_INTERVAL"; done; systemctl suspend' \
+			before-sleep 'swaylock' \
+			1>/dev/null 2>&1 &
+		echo "$!" >"$pidf"
+		pkill -RTMIN+$SIGNAL waybar
+	elif [ "${procname}" = "hypridle" ]; then
+		while true; do
+			if ! check_media_playing; then
+				hyprctl dispatch dpms off
+				sleep "$DPMS_TIMEOUT"
+				if ! check_media_playing; then
+					systemctl suspend
+				fi
+			fi
+			sleep "$HYPRIDLE_CHECK_INTERVAL"
+		done &
+		echo "$!" >"$pidf"
+		pkill -RTMIN+$SIGNAL waybar
+	fi
+}
+
+off() {
+	if [ ! -s "$pidf" ]; then
+		echo "Idle script is not running."
+		exit 1
+	fi
+
+	pid=$(awk 'NR==1' "$pidf")
+	if [ -z "$pid" ]; then
+		echo "No valid PID found."
+		exit 2
+	fi
+
+	if kill -0 "$pid" 2>/dev/null; then
+		kill "$pid"
+	fi
+
+	>"$pidf"
+	pkill -RTMIN+$SIGNAL waybar
+}
+
+case "$1" in
+status) status ;;
+toggle) toggle ;;
+on) on ;;
+off) off ;;
+*) printf "ERROR: Argument %s not valid\n" "$1" ;;
+esac

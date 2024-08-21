@@ -1,6 +1,23 @@
-export QT_QPA_PLATFORMTHEME=qt6ct
+#-----------------------#
+# Environment Variables #
+#-----------------------#
+
+# QT stuff
+# export QT_QPA_PLATFORMTHEME=qt5ct
 export QT_QPA_PLATFORM=wayland
 export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
-export WLR_NO_HARDWARE_CURSORS=1
-#export WLR_RENDERER=vulkan
+
+# Sway
+export XDG_CURRENT_DESKTOP=sway
+export XDG_SESSION_DESKTOP=sway
 export PATH=$PATH:$HOME/.local/bin
+
+# NVIDIA Fixes
+export LIBVA_DRIVER_NAME=nvidia
+export XDG_SESSION_TYPE=wayland
+export GBM_BACKEND=nvidia-drm
+export __GLX_VENDOR_LIBRARY_NAME=nvidia
+export __NV_PRIME_RENDER_OFFLOAD=1
+export MOZ_ENABLE_WAYLAND=1 # (REQUIRED: Firefox will break otherwise.)
+export XWAYLAND_NO_GLAMOR=1 # (If not, windows under XWayland flicker) 
+#export WLR_RENDERER=vulkan

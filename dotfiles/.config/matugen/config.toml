@@ -5,10 +5,25 @@ wallpaper_tool = 'Swww'
 swww_options = [
     "--transition-type",
     "center",
+    "--transition-fps",
+    "60",
+    "--transition-duration",
+    "3",
+    "--transition-bezier",
+    "0.4,0.2,0.4,1.0"
 ]
-run_after = [
-    [ "echo", "'hello'" ],
-]
+[config.custom_keywords]
+font = "JetBrainsMono Nerd Font"
+templates = "$HOME/.config/matugen/templates"
+hooks = "$HOME/.config/matugen/hooks"
+
+[config.custom_colors]
+success = { color = "#1b8553", blend = false }
+urgent = { color = "#ff0000", blend = false }
+white = { color = "#ffffff", blend = false }
+transparent_black = { color = "#000000", blend = false }
+semi_transparent_black = { color = "#000000", blend = false }
+light_pastel_blue = { color = "#d7e3f0", blend = false }
 
 [config.reload_apps_list]
 waybar = true
@@ -16,6 +31,7 @@ kitty = true
 gtk_theme = true
 dunst = true
 alacritty = true
+sway = true
 
 [templates]
 # Terminal Apps Colors
@@ -25,47 +41,70 @@ starship = { input_path = '~/.config/matugen/templates/starship-colors.toml', ou
 
 # Apps Colors
 waybar = {input_path = '~/.config/matugen/templates/waybar-colors.css', output_path='~/.config/waybar/colors.css' }
-wayshell = { input_path = '~/.config/matugen/templates/wayshell-colors.css', output_path = '~/.config/way-shell/colors.css' }
+wayshell = { input_path = '{{custom.templates}}/wayshell-colors.css', output_path = '~/.config/way-shell/colors.css' }
 dunst = { input_path = '~/.config/matugen/templates/dunstrc-colors', output_path = '~/.config/dunst/dunstrc' }
 rofi = { input_path = '~/.config/matugen/templates/rofi-colors.rasi', output_path = '~/.config/rofi/colors.rasi' }
 gtk3 = { input_path = '~/.config/matugen/templates/gtk-colors.css', output_path = '~/.config/gtk-3.0/gtk.css' }
 gtk4 = { input_path = '~/.config/matugen/templates/gtk-colors.css', output_path = '~/.config/gtk-4.0/gtk.css' }
+qt5ct = { input_path = '~/.config/matugen/templates/qtct-colors.conf', output_path = '~/.config/qt5ct/colors/matugen.conf' }
+qt6ct = { input_path = '~/.config/matugen/templates/qtct-colors.conf', output_path = '~/.config/qt6ct/colors/matugen.conf' }
 wlogout = { input_path = '~/.config/matugen/templates/wlogout-colors.css', output_path = '~/.config/wlogout/colors.css' }
-telegram = { input_path = '~/.config/matugen/templates/telegram-colors.tdesktop-theme', output_path = '~/.config/matugen/generated/matugen.tdesktop-theme' }
-# discord = { input_path = '~/.config/matugen/templates/discord-colors.theme.css', output_path = '~/Downloads/discord-colors.theme.css' }
+telegram = { input_path = '{{custom.templates}}/telegram-colors.tdesktop-theme', output_path = '~/.config/matugen/generated/matugen.tdesktop-theme' }
+discord = { input_path = '{{custom.templates}}/midnight-discord.css', output_path = '~/.cache/matugen/discord-colors.css' }
 
 # Window Managers Colors
 sway = { input_path = '~/.config/matugen/templates/sway-colors.conf', output_path = '~/.config/sway/colors.conf' }
 hyprland = { input_path = '~/.config/matugen/templates/hyprland-colors.conf', output_path = '~/.config/hypr/colors.conf' }
 
-# papirus-folders = {
-# colors_to_compare = [
-#     { name = "adwaita", color = "#aacae8" },
-#     { name = "blue", color = "#7cabe2" },
-#     { name = "breeze", color = "#7fc4e9" },
-#     { name = "carmine", color = "#b54142" },
-#     { name = "darkcyan", color = "#72bbc4" },
-#     { name = "green", color = "#a1bf80" },
-#     { name = "indigo", color = "#838dca" },
-#     { name = "nordic", color = "#9db4cb" },
-#     { name = "palebrown", color = "#d6c9bd" },
-#     { name = "pink", color = "#ec87a9" },
-#     { name = "teal", color = "#159a80" },
-#     { name = "white", color = "#e4e4e4" },
-#     { name = "yellow", color = "#f3c863" },
-#     { name = "black", color = "#797979" },
-#     { name = "bluegray", color = "#869aa4" },
-#     { name = "brown", color = "#bda68e" },
-#     { name = "cyan", color = "#41c7d8" },
-#     { name = "deeporange", color = "#e98a68" },
-#     { name = "grey", color = "#a6a6a6" },
-#     { name = "magenta", color = "#d192e0" },
-#     { name = "orange", color = "#eba96a" },
-#     { name = "paleorange", color = "#ebd1a7" },
-#     { name = "red", color = "#e27c7c" },
-#     { name = "violet", color = "#9b7fcb" }
-# ],
-# compare_to = "{{colors.primary.default.hex}}",
-# hook = "papirus-folders -C {} --theme Papirus-Dark"
-# }
+swaybg = { input_path = '~/.config/matugen/templates/swaybg.conf', output_path = '~/.config/sway/wallpaper.conf' }
+swaylock = { input_path = '~/.config/matugen/templates/swaylock.conf', output_path = '~/.config/swaylock/config' }
+hyprlock = { input_path = '~/.config/matugen/templates/hyprlock-colors.conf', output_path = '~/.config/matugen/generated/hyprlock-colors.conf' }
+
+generated = { input_path = '~/.config/matugen/templates/generated-colors.toml', output_path = '~/.config/matugen/generated/generated-colors.toml' }
+wallpaper = { input_path = '~/.config/matugen/templates/wallpaper', output_path = '~/.wallpaper' }
+
+[templates.bat]
+input_path = '{{custom.templates}}/bat-colors.tmTheme'
+output_path = '~/.config/bat/themes/matugen.tmTheme'
+hook = "{{custom.hooks}}/bat-hook.sh"
+
+[templates.papirus-folders]
+input_path = '~/.config/matugen/templates/papirus-folders-colors.toml'
+output_path = '~/.config/matugen/generated/papirus-folders-colors.toml'
+colors_to_compare = [
+    { name = "adwaita", color = "#93c0ea" },
+    { name = "blue", color = "#5294e2" },
+    { name = "blue", color = "#004c6b"},
+    { name = "breeze", color = "#57b8ec" },
+    { name = "breeze", color = "#88d1ec" },
+    { name = "carmine", color = "#a30002" },
+    { name = "darkcyan", color = "#45abb7" },
+    { name = "green", color = "#a1bf80" },
+    { name = "indigo", color = "#838dca" },
+    { name = "nordic", color = "#9db4cb" },
+    { name = "palebrown", color = "#d6c9bd" },
+    { name = "palebrown", color = "#ffb59b" },
+    { name = "pink", color = "#ec87a9" },
+    { name = "pink", color = "#6c3353" },
+    { name = "teal", color = "#159a80" },
+    { name = "white", color = "#e4e4e4" },
+    { name = "yellow", color = "#f3c863" },
+    { name = "yellow", color = "#4b4900" },
+    { name = "black", color = "#797979" },
+    { name = "bluegray", color = "#869aa4" },
+    { name = "brown", color = "#bda68e" },
+    { name = "cyan", color = "#41c7d8" },
+    { name = "deeporange", color = "#e98a68" },
+    { name = "grey", color = "#a6a6a6" },
+    { name = "magenta", color = "#d192e0" },
+    { name = "orange", color = "#eba96a" },
+    { name = "paleorange", color = "#ebd1a7" },
+    { name = "red", color = "#e27c7c" },
+    { name = "red", color = "#ffb4ab" },
+    { name = "violet", color = "#9b7fcb" },
+    { name = "violet", color = "#553b71" }
+]
+compare_to = "{{colors.primary.default.hex}}"
+hook = "papirus-folders -C {{closest_color}} --theme Papirus-Dark"
+
 

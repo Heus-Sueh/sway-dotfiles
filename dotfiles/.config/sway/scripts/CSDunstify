@@ -1,0 +1,96 @@
+#!/usr/bin/env sh
+set -euox pipefail
+
+# CSDunstify - Send audio and brightness notifications for dunst
+
+# dependencies: dunstify, pactl, light (for brightness), Papirus (icons)
+
+### How to use: ###
+# Pass the values via stdin and provide the notification type
+# as an argument. Options are audio, brightness, and muted
+
+### Audio notifications ###
+#   pactl set-sink-volume @DEFAULT_SINK@ +10% | notify audio
+#   pactl set-sink-volume @DEFAULT_SINK@ -10% | notify audio
+#   pactl set-sink-mute @DEFAULT_SINK@ toggle | notify muted
+### Brightness notifications ###
+#   light -A 5 && light -G | notify brightness
+#   light -U 5 && light -G | notify brightness
+
+notifyMuted() {
+	volume="$1"
+	dunstify -h string:x-canonical-private-synchronous:audio "Muted" -h int:value:"$volume" -t 1500 --icon audio-volume-muted
+}
+
+notifyAudio() {
+	volume="$1"
+	muted=$(pactl get-sink-mute @DEFAULT_SINK@ | awk '{print $2}')
+
+	if [ "$muted" = "yes" ]; then
+		notifyMuted "$volume"
+		return
+	fi
+
+	if [ $volume -eq 0 ]; then
+		notifyMuted "$volume"
+	elif [ $volume -le 30 ]; then
+		dunstify -h string:x-canonical-private-synchronous:audio "Volume: " -h int:value:"$volume" -t 1500 --icon audio-volume-low
+	elif [ $volume -le 70 ]; then
+		dunstify -h string:x-canonical-private-synchronous:audio "Volume: " -h int:value:"$volume" -t 1500 --icon audio-volume-medium
+	else
+		dunstify -h string:x-canonical-private-synchronous:audio "Volume: " -h int:value:"$volume" -t 1500 --icon audio-volume-high
+	fi
+}
+
+notifyPlayPause() {
+	# Get player status
+	status=$(playerctl status)
+
+	if [ "$status" = "Playing" ]; then
+		dunstify -h string:x-canonical-private-synchronous:media "Paused" -t 1500 --icon media-playback-pause
+	else
+		dunstify -h string:x-canonical-private-synchronous:media "Playing" -t 1500 --icon media-playback-start
+	fi
+}
+
+notifyBrightness() {
+	brightness="$1"
+	if [ $brightness -eq 0 ]; then
+		dunstify -h string:x-canonical-private-synchronous:brightness "Brightness: " -h int:value:"$brightness" -t 1500 --icon display-brightness-off-symbolic
+	elif [ $brightness -le 30 ]; then
+		dunstify -h string:x-canonical-private-synchronous:brightness "Brightness: " -h int:value:"$brightness" -t 1500 --icon display-brightness-low-symbolic
+	elif [ $brightness -le 70 ]; then
+		dunstify -h string:x-canonical-private-synchronous:brightness "Brightness: " -h int:value:"$brightness" -t 1500 --icon display-brightness-medium-symbolic
+	else
+		dunstify -h string:x-canonical-private-synchronous:brightness "Brightness: " -h int:value:"$brightness" -t 1500 --icon display-brightness-high-symbolic
+	fi
+}
+
+case "$1" in
+muted)
+	volume=$(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}' | sed 's/%//')
+	muted=$(pactl get-sink-mute @DEFAULT_SINK@ | awk '{print $2}')
+	if [ "$muted" = "yes" ]; then
+		notifyMuted "$volume"
+	else
+		notifyAudio "$volume"
+	fi
+	;;
+audio)
+	volume=$(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}' | sed 's/%//')
+	notifyAudio "$volume"
+	;;
+brightness)
+	brightness=$(light -G | awk '{print int($1)}')
+	notifyBrightness "$brightness"
+	;;
+playpause)
+	# Toggle play/pause with playerctl and send notification
+	notifyPlayPause
+	;;
+*)
+	echo "Invalid arguments"
+	echo "$1"
+	exit 2
+	;;
+esac

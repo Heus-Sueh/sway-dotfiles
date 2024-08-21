@@ -1,0 +1,5 @@
+/* Buttons */
+QPushButton {
+  border-radius: 8px;
+  background: palette(dark);
+}

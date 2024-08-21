@@ -1,0 +1,106 @@
+#----------------------------#
+# Sway Configuration Include #
+#----------------------------#
+
+include keybindings.conf
+include windowrules.conf
+include colors.conf
+# include wallpaper.conf
+
+#-------------------#
+# Setting Variables #
+#-------------------#
+
+set $sway_scripts $HOME/.config/sway/scripts
+set $rofi_scripts $HOME/.config/rofi/scripts
+
+#-----------------------#
+# Environment Variables #
+#-----------------------#
+
+#------------#
+# Appearance #
+#------------#
+
+# borders
+default_border pixel 2
+default_floating_border pixel 3
+# Activate smart borders (always)
+#smart_borders on
+#smart_gaps on
+# gaps
+gaps inner  3
+gaps outer  3
+	
+#-----------------------#
+# set GTK+ and QT theme #
+#-----------------------#
+set $gnome-schema org.gnome.desktop.interface
+set $wm-preferences org.gnome.desktop.wm.preferences
+exec_always {
+    gsettings set $gnome-schema color-scheme 'prefer-dark'
+    gsettings set $wm-preferences theme 'adw-gtk3-dark'
+    gsettings set $gnome-schema gtk-theme 'adw-gtk3-dark'
+    gsettings set $gnome-schema icon-theme 'Papirus-Dark'
+    gsettings set $gnome-schema cursor-theme 'Catppuccin-Mocha-Dark-Cursors'
+    gsettings set $gnome-schema font-name 'Inter Variable 11'
+}
+
+#-----------#
+# Autostart #
+#-----------#
+exec_always  --no-startup-id  pkill dunst && dunst
+exec_always  --no-startup-id  $sway_scripts/autotiling
+# exec_always  --no-startup-id  pkill way-shell && way-shell
+exec_always  --no-startup-id  ~/.local/bin/clipse -listen
+exec_always  --no-startup-id  fcitx5 &
+# exec_always  --no-startup-id  swww-daemon
+exec_always  --no-startup-id  nm-applet --indicator &
+exec_always  --no-startup-id  swaybg
+
+#-----#
+# Bar #
+#-----#
+bar {
+  position top
+  swaybar_command waybar
+}
+
+#-------#
+# Input #
+#-------#
+input type:keyboard xkb_numlock enabled
+
+# You can get the names of your inputs by running: swaymsg -t get_inputs
+# Read `man 5 sway-input` for more information about this section.
+# input "1739:52781:MSFT0001:01_06CB:CE2D_Touchpad" {
+# 	dwt enabled
+# 	tap enabled
+# 	natural_scroll enabled
+# 	middle_emulation enabled
+# }
+
+#-----------------------------#
+#           Misc              #
+#-----------------------------#
+output * adaptive_sync on
+  
+# exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+# exec hash dbus-update-activation-environment 2>/dev/null && dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
+
+#--------------------#
+# Idle configuration #
+#--------------------#
+# This will lock your screen after 300 seconds of inactivity, then turn off
+# your displays after another 300 seconds, and turn your screens back on when
+# resumed. It will also lock your screen before your computer goes to sleep.
+
+#exec swayidle -w \
+	#timeout 300 '~/.config/sway/scripts/swaylock.sh' \
+	#timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+	#timeout 6 'systemctl suspend' \
+	#before-sleep '~/.config/sway/scripts/swaylock.sh'
+
+#exec swayidle -w \
+    #timeout 900 'systemctl suspend' \
+    #before-sleep '~/.config/sway/scripts/swaylock.sh'

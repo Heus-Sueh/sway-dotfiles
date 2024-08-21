@@ -1,75 +1,71 @@
 [colors.primary]
-background = "{{colors.surface.default.hex}}"
-foreground = "{{colors.on_surface.default.hex}}"
-dim_foreground = "#7f849c"
-bright_foreground = "#cdd6f4"
+background = '{{colors.background.default.hex}}'
+foreground = '{{colors.on_background.default.hex}}'
 
 [colors.cursor]
-text = "{{colors.on_surface_variant.default.hex}}"
-cursor = "{{colors.on_surface.default.hex}}"
+text = '#1E1E2E' 
+cursor = '#F5E0DC' 
 
 [colors.vi_mode_cursor]
-text = "#1e1e2e"
-cursor = "#b4befe"
+text = '#1E1E2E' 
+cursor = '#B4BEFE' 
+
 
 [colors.search.matches]
-foreground = "#1e1e2e"
-background = "#a6adc8"
+foreground = '#1E1E2E' 
+background = '#A6ADC8' 
 
 [colors.search.focused_match]
-foreground = "#1e1e2e"
-background = "#a6e3a1"
+foreground = '#1E1E2E' 
+background = '#A6E3A1' 
 
 [colors.footer_bar]
-foreground = "#1e1e2e"
-background = "#a6adc8"
+foreground = '#1E1E2E' 
+background = '#A6ADC8' 
+
 
 [colors.hints.start]
-foreground = "#1e1e2e"
-background = "#f9e2af"
+foreground = '#1E1E2E' 
+background = '#F9E2AF' 
 
 [colors.hints.end]
-foreground = "#1e1e2e"
-background = "#a6adc8"
+foreground = '#1E1E2E' 
+background = '#A6ADC8' 
+
 
 [colors.selection]
-text = "#1e1e2e"
-background = "#f5e0dc"
+text = '#1E1E2E' 
+background = '#F5E0DC' 
+
 
 [colors.normal]
-black = "#45475a"
-red = "#f38ba8"
-green = "#a6e3a1"
-yellow = "#f9e2af"
-blue = "#89b4fa"
-magenta = "#f5c2e7"
-cyan = "#94e2d5"
-white = "#bac2de"
+black = '#45475A' 
+red = '#F38BA8' 
+green = '#A6E3A1' 
+yellow = '#F9E2AF' 
+blue = '#89B4FA' 
+magenta = '#F5C2E7' 
+cyan = '#94E2D5' 
+white = '#BAC2DE' 
+
 
 [colors.bright]
-black = "#585b70"
-red = "#f38ba8"
-green = "#a6e3a1"
-yellow = "#f9e2af"
-blue = "#89b4fa"
-magenta = "#f5c2e7"
-cyan = "#94e2d5"
-white = "#a6adc8"
+black = '#585B70' 
+red = '#F38BA8' 
+green = '#A6E3A1' 
+yellow = '#F9E2AF' 
+blue = '#89B4FA' 
+magenta = '#F5C2E7' 
+cyan = '#94E2D5' 
+white = '#A6ADC8' 
+
 
 [colors.dim]
-black = "#45475a"
-red = "#f38ba8"
-green = "#a6e3a1"
-yellow = "#f9e2af"
-blue = "#89b4fa"
-magenta = "#f5c2e7"
-cyan = "#94e2d5"
-white = "#bac2de"
-
-[[colors.indexed_colors]]
-index = 16
-color = "#fab387"
-
-[[colors.indexed_colors]]
-index = 17
-color = "#f5e0dc"
+black = '#45475A' 
+red = '#F38BA8' 
+green = '#A6E3A1' 
+yellow = '#F9E2AF' 
+blue = '#89B4FA' 
+magenta = '#F5C2E7' 
+cyan = '#94E2D5' 
+white = '#BAC2DE' 

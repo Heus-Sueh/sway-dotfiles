@@ -1,0 +1,159 @@
+@import "colors.rasi"
+
+* {
+  accent: @primary;
+  text: @on-primary;
+  normal: @secondary-fixed;
+  on-normal: @on-secondary-fixed;
+  selected: @primary;
+  on-selected: @on-primary;
+  border: @primary;
+  background: @surface;
+  background-alt: @surface-container;
+  handle: @primary;
+  placeholder: @on-primary;
+  on-search: @primary;
+}
+
+configuration {
+    show-icons:                     false;
+    display-drun: 		              "";
+    drun-display-format:            "{icon} {name}";
+    disable-history:                false;
+    click-to-exit: 		              true;
+    location:                       0;
+}
+
+/* Line Responsible For Button Layouts */
+/* BUTTON = FALSE */
+
+window {
+    transparency:                   "real";
+    background-color:               @background;
+    text-color:                     @on-selected;
+    border:                         2px;
+    border-color:                   @border;
+    border-radius:                  10px;
+    width:                          300px;
+    anchor:                         center;
+    x-offset:                       0;
+    y-offset:                       0;
+}
+
+prompt {
+    enabled: 			            true;
+    margin: 			            0px 0px 0px 8px;
+    padding: 			            8px;
+    background-color: 		    inherit;
+    text-color: 		          @accent;
+    border-color:             @border;
+}
+
+textbox-prompt-colon {
+    expand: 			            false;
+    str: 			                "";
+    border-radius:            100%;
+    background-color:         @background-alt;
+    text-color:               @accent;
+    padding:                  8px 12px 8px 12px;
+    font:			                "Iosevka Nerd Font 10";
+}
+
+entry {
+    background-color:               @background-alt;
+    text-color:                     @placeholder;
+    placeholder-color:              @on-search;
+    expand:                         true;
+    horizontal-align:               0;
+    placeholder:                    "Search...";
+    blink:                          true;
+    border:                  	      0px 0px 2px 0px;
+    border-color:                   @border;
+    padding:                        8px;
+}
+
+inputbar {
+	children: 						[ textbox-prompt-colon, prompt ];
+    background-color:               @background-alt;
+    text-color:                     @on-selected;
+    expand:                         false;
+    border:                  		    0px 0px 0px 0px;
+    border-radius:                  10px;
+    border-color:                  	@border;
+    margin:                         0px 0px 0px 0px;
+    padding:                        0px;
+    position:                       center;
+}
+
+case-indicator {
+    background-color:               @background-alt;
+    text-color:                     @on-selected;
+    spacing:                        0;
+}
+
+
+listview {
+    background-color:               @background;
+    columns:                        1;
+    lines:							            5;
+    spacing:                        4px;
+    cycle:                          true;
+    dynamic:                        true;
+    layout:                         vertical;
+}
+
+mainbox {
+    background-color:               @background;
+    children:                       [ inputbar, listview ];
+    spacing:                       	15px;
+    padding:                        15px;
+}
+
+element {
+    orientation:                    horizontal;
+    border-radius:                  10px;
+    padding:                        10px;
+}
+
+element-icon {
+    background-color: 				      inherit;
+    text-color:       				      inherit;
+    size:                           0px;
+    border:                         0px;
+}
+
+element-text {
+    background-color: 				      inherit;
+    text-color:       				      inherit;
+    expand:                         true;
+    horizontal-align:               0;
+    vertical-align:                 0.5;
+    margin:                         2px 0px 2px 6px;
+}
+
+element alternate.normal,
+element normal.active,
+element normal.normal {
+  background-color: @normal;
+  text-color: @on-normal;
+}
+
+element selected.active,
+element selected.normal {
+  background-color: @selected;
+  text-color: @on-selected;
+}
+
+button.selected {
+    background-color: @selected;
+    text-color:       @on-selected;
+}
+
+scrollbar {
+    background-color: @background-alt;
+    width:        4px;
+    border:       0;
+    handle-width: 8px;
+    handle-color: @handle;
+    padding:      0;
+}

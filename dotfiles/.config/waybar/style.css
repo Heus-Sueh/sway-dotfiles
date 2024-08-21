@@ -11,9 +11,13 @@
 }
 
 window#waybar {
+  /*border: 2px solid @primary;*/
+  /*border-radius: 8px;*/
   background-color: @surface;
   transition-property: background-color;
   transition-duration: 0.5s;
+  margin-top: 1px;
+  margin-bottom: 1px;
 }
 
 window#waybar.hidden {
@@ -21,11 +25,12 @@ window#waybar.hidden {
 }
 
 #workspaces {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 5px;
   border-radius: 4px;
   background-color: @surface_container;
   color: @surface_container;
-  margin: 6px 3px;
-  padding: 1px 10px;
 }
 
 #workspaces button {
@@ -36,17 +41,17 @@ window#waybar.hidden {
   margin: 6px 3px;
   border-radius: 4px;
   background-color: @surface_container;
-  color: @on_surface;
+  color: @background;
 }
 
 #workspaces button.focused {
-  color: @on_primary_fixed_variant;
+  color: @primary;
 }
 
 #workspaces button:hover {
   box-shadow: inherit;
   text-shadow: inherit;
-  color: @on_primary_fixed_variant;
+  color: @primary;
 }
 
 #workspaces button.urgent {
@@ -58,13 +63,18 @@ window#waybar.hidden {
   animation-direction: alternate;
 }
 
+#idle_inhibitor {
+  color: @primary;
+  font-family: JetBrainsMono Nerd Font;
+}
+
 #custom-music {
   color: @tertiary;
 }
 
-#custom-swayidle,
 #memory,
 #custom-power,
+#custom-swaync,
 #custom-notification,
 #battery,
 #backlight,
@@ -72,6 +82,7 @@ window#waybar.hidden {
 #pulseaudio,
 #network,
 #clock,
+#idle_inhibitor,
 #custom-lock,
 #tray {
   border-radius: 4px;
@@ -87,11 +98,6 @@ window#waybar.hidden {
 }
 
 #clock {
-  color: @primary;
-  font-family: JetBrainsMono Nerd Font;
-}
-
-#custom-swayidle {
   color: @primary;
   font-family: JetBrainsMono Nerd Font;
 }

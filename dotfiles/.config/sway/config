@@ -5,6 +5,7 @@
 include keybindings.conf
 include windowrules.conf
 include colors.conf
+# include wallpaper.conf
 
 #-------------------#
 # Setting Variables #
@@ -12,14 +13,12 @@ include colors.conf
 
 set $sway_scripts $HOME/.config/sway/scripts
 set $rofi_scripts $HOME/.config/rofi/scripts
-
-#-----------------------#
-# Environment Variables #
-#-----------------------#
+set $wallpapers   $HOME/Pictures/Wallpapers
 
 #------------#
 # Appearance #
 #------------#
+# output * bg $wallpapers/wallhaven/wallhaven-6d7xmx.jpg fill
 
 # borders
 default_border pixel 2
@@ -34,27 +33,42 @@ gaps outer  3
 #-----------------------#
 # set GTK+ and QT theme #
 #-----------------------#
-set $gnome-schema org.gnome.desktop.interface
+set $interface org.gnome.desktop.interface
 set $wm-preferences org.gnome.desktop.wm.preferences
 exec_always {
-    gsettings set $gnome-schema color-scheme 'prefer-dark'
+    gsettings set $interface color-scheme 'prefer-dark'
     gsettings set $wm-preferences theme 'adw-gtk3-dark'
-    gsettings set $gnome-schema gtk-theme 'adw-gtk3-dark'
-    gsettings set $gnome-schema icon-theme 'Papirus-Dark'
-    gsettings set $gnome-schema cursor-theme 'Catppuccin-Mocha-Dark-Cursors'
-    gsettings set $gnome-schema font-name 'FiraCode 12'
+    gsettings set $interface gtk-theme 'adw-gtk3-dark'
+    gsettings set $interface icon-theme 'Papirus-Dark'
+    gsettings set $interface cursor-theme 'Catppuccin-Mocha-Dark-Cursors'
+    gsettings set $interface font-name 'Inter Variable 11'
 }
 
 #-----------#
 # Autostart #
 #-----------#
-exec_always  --no-startup-id  pkill dunst && dunst
-exec_always  --no-startup-id  $sway_scripts/autotiling
-# exec_always  --no-startup-id  pkill way-shell && way-shell
-exec_always  --no-startup-id  ~/.local/bin/clipse -listen
-exec_always  --no-startup-id  fcitx5 &
-# exec_always  --no-startup-id  swww-daemon
-exec_always  --no-startup-id  nm-applet --indicator &
+exec "/usr/libexec/polkit-gnome-authentication-agent-1"
+exec "/usr/libexec/xdg-desktop-portal"
+exec "/usr/libexec/xdg-desktop-portal-gtk"
+exec dbus-update-activation-environment --all
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+# exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+
+exec  --no-startup-id  pkill dunst && dunst
+# exec_always pkill swaync && swaync
+exec  --no-startup-id  fcitx5 &
+exec  --no-startup-id  nm-applet --indicator &
+# exec_always  --no-startup-id  xwaylandvideobridge
+# Clipman is not good, install Clipse much better
+exec wl-paste -p -t text --watch clipman store -P --histpath="$HOME/.local/share/clipman-primary.json"
+exec wl-paste -t text --watch clipman store
+# exec_always  ~/.local/bin/clipse -listen
+
+exec ~/.local/bin/swww-daemon
+# Scripts
+exec $sway_scripts/autotiling
+exec $sway_scripts/progress-notify
+exec $sway_scripts/idle_script on
 
 #-----#
 # Bar #
@@ -62,11 +76,13 @@ exec_always  --no-startup-id  nm-applet --indicator &
 bar {
   position top
   swaybar_command waybar
+  binding_mode_indicator yes
 }
 
 #-------#
 # Input #
 #-------#
+input type:keyboard xkb_numlock enabled
 
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
@@ -80,11 +96,8 @@ bar {
 #-----------------------------#
 #           Misc              #
 #-----------------------------#
-output * adaptive_sync on
+output * adaptive_sync off
   
-exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
-exec hash dbus-update-activation-environment 2>/dev/null && dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
-
 #--------------------#
 # Idle configuration #
 #--------------------#
@@ -92,15 +105,12 @@ exec hash dbus-update-activation-environment 2>/dev/null && dbus-update-activati
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
 
-#exec swayidle -w \
-	#timeout 300 '~/.config/sway/scripts/swaylock.sh' \
-	#timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-	#timeout 6 'systemctl suspend' \
-	#before-sleep '~/.config/sway/scripts/swaylock.sh'
+# exec swayidle -w \
+# 	timeout 300 '~/.config/sway/scripts/swaylock.sh' \
+# 	timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+# 	timeout 6 'systemctl suspend' \
+# 	before-sleep '~/.config/sway/scripts/swaylock.sh'
 
 #exec swayidle -w \
     #timeout 900 'systemctl suspend' \
     #before-sleep '~/.config/sway/scripts/swaylock.sh'
-
-# Rofi Wallpaper Selector
-exec_always swaybg -i /var/home/heus/Pictures/Wallpapers/beautiful-wallpapers/2023-08-14-11-00-18-fox.png -m fill
