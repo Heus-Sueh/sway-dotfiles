@@ -75,7 +75,7 @@ window#waybar.empty #window {
 
 /* Middle */
 
-#clock {
+#window {
   margin: 6px 0px;
   padding: 6px 12px;
   border-radius: 20px;

@@ -1,19 +1,18 @@
 {
   "layer": "top", // Waybar at top layer
   "position": "top", // Waybar position (top|bottom|left|right)
-  // "width": 1280, // Waybar width
-  // Choose the order of the modules
   "modules-left": ["sway/workspaces"],
-  "modules-center": ["clock"],
+  "modules-center": ["sway/window"],
   "modules-right": [
     "pulseaudio",
-    "custom/swayidle",
     "backlight",
     "battery",
     "blueman-applet",
     "tray",
+    "idle_inhibitor",
+    // "custom/swaync",
     "custom/notification",
-    "custom/lock",
+    "clock",
     "custom/power",
   ],
   "sway/workspaces": {
@@ -30,6 +29,12 @@
       "default": "",
     },
   },
+  "sway/window": {
+    "format": "{}",
+    "max-length": 25,
+    "offscreen-css": true,
+    "offscreen-css-text": "(inactive)",
+  },
   "custom/music": {
     "format": "  {}",
     "escape": true,
@@ -45,23 +50,43 @@
     "format-alt": " {:%d/%m/%Y}",
     "format": " {:%H:%M}",
   },
-  "custom/swayidle": {
-    "exec": "$HOME/.local/share/waybar/modules/waybar-swayidle status",
-    "interval": "once",
-    "signal": 1,
-    "return-type": "json",
-    "tooltip": true,
-    "format": "{}",
-    "on-click": "$HOME/.local/share/waybar/modules/waybar-swayidle toggle",
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": " ",
+      "deactivated": " ",
+    },
   },
   "custom/notification": {
     "exec": "dunstctl get-pause-level",
     "on-click": "dunstctl set-paused toggle",
     "interval": "once",
+    "tooltip": true,
+    "tooltip-format": "Toggle notifications on/off",
     "format": "",
     "format-alt": "",
     "icon-size": 24,
     "spacing": 10,
+  },
+  "custom/swaync": {
+    "tooltip": true,
+    "format": "{icon} {}",
+    "format-icons": {
+      "notification": "<span foreground='red'><sup></sup></span>",
+      "none": "",
+      "dnd-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-none": "",
+      "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "inhibited-none": "",
+      "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-inhibited-none": "",
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "sleep 0.1 && swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true,
   },
   "tray": {
     "icon-size": 20,
@@ -105,14 +130,11 @@
     "scroll-step": 5, // "scroll-step": 1, // %, can be a float
     "on-click": "pavucontrol",
   },
-  "custom/lock": {
-    "tooltip": false,
-    "on-click": "~/.config/sway/scripts/swaylock.sh",
-    "format": "",
-  },
   "custom/power": {
     "tooltip": false,
     "on-click": "wlogout",
     "format": "襤",
+    "tooltip": true,
+    "tooltip-format": "Shutdown\nReboot\nLock\nLogout\nHibernate",
   },
 }
