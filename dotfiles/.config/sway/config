@@ -5,6 +5,7 @@
 include keybindings.conf
 include windowrules.conf
 include colors.conf
+include exec.conf
 # include wallpaper.conf
 
 #-------------------#
@@ -44,32 +45,6 @@ exec_always {
     gsettings set $interface font-name 'Inter Variable 11'
 }
 
-#-----------#
-# Autostart #
-#-----------#
-exec "/usr/libexec/polkit-gnome-authentication-agent-1"
-exec "/usr/libexec/xdg-desktop-portal"
-exec "/usr/libexec/xdg-desktop-portal-gtk"
-exec dbus-update-activation-environment --all
-exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
-# exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
-
-exec  --no-startup-id  pkill dunst && dunst
-# exec_always pkill swaync && swaync
-exec  --no-startup-id  fcitx5 &
-exec  --no-startup-id  nm-applet --indicator &
-# exec_always  --no-startup-id  xwaylandvideobridge
-# Clipman is not good, install Clipse much better
-exec wl-paste -p -t text --watch clipman store -P --histpath="$HOME/.local/share/clipman-primary.json"
-exec wl-paste -t text --watch clipman store
-# exec_always  ~/.local/bin/clipse -listen
-
-exec ~/.local/bin/swww-daemon
-# Scripts
-exec $sway_scripts/autotiling
-exec $sway_scripts/progress-notify
-exec $sway_scripts/idle_script on
-
 #-----#
 # Bar #
 #-----#
@@ -97,6 +72,11 @@ input type:keyboard xkb_numlock enabled
 #           Misc              #
 #-----------------------------#
 output * adaptive_sync off
+
+#---------------------#
+# Focus follows mouse #
+#---------------------#
+focus_follows_mouse yes
   
 #--------------------#
 # Idle configuration #

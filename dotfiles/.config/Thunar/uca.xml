@@ -5,11 +5,54 @@
 	<name>Open Terminal Here</name>
 	<submenu></submenu>
 	<unique-id>1708198417972650-1</unique-id>
-	<command>alacritty</command>
+	<command>xdg-terminal-exec</command>
 	<description>Example for a custom action</description>
 	<range></range>
 	<patterns>*</patterns>
 	<startup-notify/>
 	<directories/>
+</action>
+<action>
+	<icon>thunar</icon>
+	<name>Open Thunar as a root </name>
+	<submenu></submenu>
+	<unique-id>1725291435347888-1</unique-id>
+	<command>pkexec thunar %F</command>
+	<description></description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon>inode-symlink</icon>
+	<name>Create a Link</name>
+	<submenu></submenu>
+	<unique-id>1725291634393236-2</unique-id>
+	<command>ln -s %f &apos;Link to %n&apos;</command>
+	<description>Create a symLink</description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<directories/>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+<action>
+	<icon>edit-copy</icon>
+	<name>Copy path</name>
+	<submenu></submenu>
+	<unique-id>1745165290125759-1</unique-id>
+	<command>wl-copy %f</command>
+	<description>Copy the absolute path</description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<directories/>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
 </action>
 </actions>
