@@ -7,6 +7,11 @@ To use the wallpaper selector, you need to place your wallpapers in the director
 <img src="screenshots/wallpaper-selector.png"/>
 
 ## The following things are necessary:
+- [xdg-terminal-exec](https://github.com/Vladimir-csp/xdg-terminal-exec)
+    ```sh
+    curl -sSL https://raw.githubusercontent.com/Vladimir-csp/xdg-terminal-exec/master/xdg-terminal-exec -o ~/.local/bin/xdg-terminal-exec
+    chmod +x ~/.local/bin/xdg-terminal-exec
+    ```
 - [adw-gtk3](https://github.com/lassekongo83/adw-gtk3)
 - [matugen](https://github.com/InioX/matugen)
 - [Papirus Icons](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)
